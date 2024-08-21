@@ -1,0 +1,12 @@
+C:\SourceCode\Universidad\2024-2\diseno-detallado-software\proyecto\fire-emblem-project\Fire-Emblem\Fire-Emblem-View\bin\Debug\net8.0\Fire-Emblem-View.deps.json
+C:\SourceCode\Universidad\2024-2\diseno-detallado-software\proyecto\fire-emblem-project\Fire-Emblem\Fire-Emblem-View\bin\Debug\net8.0\Fire-Emblem-View.dll
+C:\SourceCode\Universidad\2024-2\diseno-detallado-software\proyecto\fire-emblem-project\Fire-Emblem\Fire-Emblem-View\bin\Debug\net8.0\Fire-Emblem-View.pdb
+C:\SourceCode\Universidad\2024-2\diseno-detallado-software\proyecto\fire-emblem-project\Fire-Emblem\Fire-Emblem-View\obj\Debug\net8.0\Fire-Emblem-View.GeneratedMSBuildEditorConfig.editorconfig
+C:\SourceCode\Universidad\2024-2\diseno-detallado-software\proyecto\fire-emblem-project\Fire-Emblem\Fire-Emblem-View\obj\Debug\net8.0\Fire-Emblem-View.AssemblyInfoInputs.cache
+C:\SourceCode\Universidad\2024-2\diseno-detallado-software\proyecto\fire-emblem-project\Fire-Emblem\Fire-Emblem-View\obj\Debug\net8.0\Fire-Emblem-View.AssemblyInfo.cs
+C:\SourceCode\Universidad\2024-2\diseno-detallado-software\proyecto\fire-emblem-project\Fire-Emblem\Fire-Emblem-View\obj\Debug\net8.0\Fire-Emblem-View.csproj.CoreCompileInputs.cache
+C:\SourceCode\Universidad\2024-2\diseno-detallado-software\proyecto\fire-emblem-project\Fire-Emblem\Fire-Emblem-View\obj\Debug\net8.0\Fire-Emblem-View.sourcelink.json
+C:\SourceCode\Universidad\2024-2\diseno-detallado-software\proyecto\fire-emblem-project\Fire-Emblem\Fire-Emblem-View\obj\Debug\net8.0\Fire-Emblem-View.dll
+C:\SourceCode\Universidad\2024-2\diseno-detallado-software\proyecto\fire-emblem-project\Fire-Emblem\Fire-Emblem-View\obj\Debug\net8.0\refint\Fire-Emblem-View.dll
+C:\SourceCode\Universidad\2024-2\diseno-detallado-software\proyecto\fire-emblem-project\Fire-Emblem\Fire-Emblem-View\obj\Debug\net8.0\Fire-Emblem-View.pdb
+C:\SourceCode\Universidad\2024-2\diseno-detallado-software\proyecto\fire-emblem-project\Fire-Emblem\Fire-Emblem-View\obj\Debug\net8.0\ref\Fire-Emblem-View.dll
