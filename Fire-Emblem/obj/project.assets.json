@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\SourceCode\\fire-emblem-project\\Fire-Emblem\\Fire-Emblem\\Fire-Emblem.csproj",
+      "projectUniqueName": "C:\\SourceCode\\fire-emblem-project\\Fire-Emblem\\Fire-Emblem.csproj",
       "projectName": "Fire-Emblem",
-      "projectPath": "C:\\SourceCode\\fire-emblem-project\\Fire-Emblem\\Fire-Emblem\\Fire-Emblem.csproj",
+      "projectPath": "C:\\SourceCode\\fire-emblem-project\\Fire-Emblem\\Fire-Emblem.csproj",
       "packagesPath": "C:\\Users\\hollo\\.nuget\\packages\\",
-      "outputPath": "C:\\SourceCode\\fire-emblem-project\\Fire-Emblem\\Fire-Emblem\\obj\\",
+      "outputPath": "C:\\SourceCode\\fire-emblem-project\\Fire-Emblem\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hollo\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -51,8 +51,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\SourceCode\\fire-emblem-project\\Fire-Emblem\\Fire-Emblem-View\\Fire-Emblem-View.csproj": {
-              "projectPath": "C:\\SourceCode\\fire-emblem-project\\Fire-Emblem\\Fire-Emblem-View\\Fire-Emblem-View.csproj"
+            "C:\\SourceCode\\fire-emblem-project\\Fire-Emblem-View\\Fire-Emblem-View.csproj": {
+              "projectPath": "C:\\SourceCode\\fire-emblem-project\\Fire-Emblem-View\\Fire-Emblem-View.csproj"
             }
           }
         }

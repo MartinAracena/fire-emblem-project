@@ -26,5 +26,7 @@ public class Game
             string fileName = files[i].Split("\\")[2];
             _view.WriteLine($"{i}: {fileName}");
         }
+        string input = _view.ReadLine();
+        _view.WriteLine("Archivo de equipos no válido");
     }
 }

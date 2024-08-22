@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\SourceCode\\fire-emblem-project\\Fire-Emblem\\Fire-Emblem-View\\Fire-Emblem-View.csproj",
+      "projectUniqueName": "C:\\SourceCode\\fire-emblem-project\\Fire-Emblem-View\\Fire-Emblem-View.csproj",
       "projectName": "Fire-Emblem-View",
-      "projectPath": "C:\\SourceCode\\fire-emblem-project\\Fire-Emblem\\Fire-Emblem-View\\Fire-Emblem-View.csproj",
+      "projectPath": "C:\\SourceCode\\fire-emblem-project\\Fire-Emblem-View\\Fire-Emblem-View.csproj",
       "packagesPath": "C:\\Users\\hollo\\.nuget\\packages\\",
-      "outputPath": "C:\\SourceCode\\fire-emblem-project\\Fire-Emblem\\Fire-Emblem-View\\obj\\",
+      "outputPath": "C:\\SourceCode\\fire-emblem-project\\Fire-Emblem-View\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hollo\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WDHq+xS04co=",
+  "dgSpecHash": "nfqRRUtKyq4=",
   "success": true,
-  "projectFilePath": "C:\\SourceCode\\fire-emblem-project\\Fire-Emblem\\Fire-Emblem.Tests\\Fire-Emblem.Tests.csproj",
+  "projectFilePath": "C:\\SourceCode\\fire-emblem-project\\Fire-Emblem.Tests\\Fire-Emblem.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hollo\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\hollo\\.nuget\\packages\\microsoft.codecoverage\\17.8.0\\microsoft.codecoverage.17.8.0.nupkg.sha512",
