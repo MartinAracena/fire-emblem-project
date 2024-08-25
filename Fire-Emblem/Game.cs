@@ -1,18 +1,33 @@
 ﻿using Fire_Emblem_View;
+using Fire_Emblem.DataManagement;
+using Fire_Emblem.Serialization;
 
 namespace Fire_Emblem;
 
 public class Game {
     private View _view;
     private string _teamsFolder;
+
+    private UnitCatalog _unitCatalog;
+    private AbilityCatalog _abilityCatalog;
+    private JsonDataLoader _jsonDataLoader;
     
     public Game(View view, string teamsFolder) {
         _view = view;
         _teamsFolder = teamsFolder;
+
+        _unitCatalog = new UnitCatalog();
+        _abilityCatalog= new AbilityCatalog();
+        _jsonDataLoader = new JsonDataLoader();
     }
 
     public void Play() {
-        ReadTeamsFile();
+        _jsonDataLoader.LoadUnitCatalog();
+        _jsonDataLoader.LoadAbilityCatalog();
+    }
+
+    private void LoadGameSetup() {
+        
     }
 
     private void ReadTeamsFile() {
