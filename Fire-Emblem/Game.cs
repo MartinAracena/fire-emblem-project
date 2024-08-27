@@ -1,4 +1,5 @@
 ﻿using Fire_Emblem_View;
+using Fire_Emblem.Configuration;
 using Fire_Emblem.DataManagement;
 using Fire_Emblem.Serialization;
 
@@ -18,18 +19,22 @@ public class Game {
 
         _unitCatalog = new UnitCatalog();
         _abilityCatalog= new AbilityCatalog();
-        _jsonDataLoader = new JsonDataLoader();
-    }
 
-    public void Play() {
-        _jsonDataLoader.LoadUnitCatalog();
-        _jsonDataLoader.LoadAbilityCatalog();
+        _jsonDataLoader = new JsonDataLoader(_unitCatalog, _abilityCatalog);
+        
+        LoadGameSetup();
+
     }
 
     private void LoadGameSetup() {
+        _jsonDataLoader.LoadUnitCatalog(GameConfig.DefaultCharacterFilePath);
+        _jsonDataLoader.LoadAbilityCatalog(GameConfig.DefaultAbilityFilePath);
+    }
+    
+    public void Play() {
         
     }
-
+    
     private void ReadTeamsFile() {
         string[] filePathNames = Directory.GetFiles(_teamsFolder);
         _view.WriteLine("Elige un archivo para cargar los equipos");
