@@ -12,12 +12,17 @@ public class TeamBuilder {
         _abilityCatalog = abilityCatalog;
     }
 
-    public void BuildTeams(List<Player> players) {
+    public void BuildTeam(List<Tuple<string, List<string>>> unitData) {
+        var team = new Team();
         
+        foreach (var unitInfo in unitData) {
+            var unit = CreateUnit(unitInfo.Item1, unitInfo.Item2);
+            team.AddUnit(unit);
+        }
     }
 
     public Unit CreateUnit(string unitName, List<string> abilities) {
-        Unit unit = _unitCatalog.GetUnit(unitName);
+        var unit = _unitCatalog.GetUnit(unitName);
 
         foreach (var abilityName in abilities) {
             var ability = _abilityCatalog.GetAbility(abilityName);
