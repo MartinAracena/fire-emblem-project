@@ -20,4 +20,8 @@ public class GameView {
     public void ShowFileSelection(int index, string fileName) {
         _view.WriteLine($"{index}: {fileName}");
     }
+
+    public void SayThatATeamIsInvalid() {
+        _view.WriteLine("Archivo de equipos no válido");
+    }
 }

@@ -18,5 +18,8 @@ public static class GameConfig {
 
     public static readonly int MaxDuplicateAbilitiesPerUnit = 0;
 
+    public static readonly double WeaponTriangleBonus = 1.2;
+
+    public static readonly double WeaponTrianglePenalty = 0.8;
 
 }

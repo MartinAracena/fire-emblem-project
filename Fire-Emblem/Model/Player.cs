@@ -4,9 +4,8 @@ namespace Fire_Emblem.Model;
 
 public class Player {
     public int PlayerId;
-    public Team Units = new Team();
-    
-    public Player(int playerId) {
-        PlayerId = playerId;
+    public Team Team;
+    public void AddTeam(Team team) {
+        Team = team;
     }
 }

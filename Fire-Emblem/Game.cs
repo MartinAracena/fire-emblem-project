@@ -1,20 +1,23 @@
 ﻿using Fire_Emblem_View;
+using Fire_Emblem.Combat;
 using Fire_Emblem.Configuration;
 using Fire_Emblem.DataAccess;
 using Fire_Emblem.DataManagement;
 using Fire_Emblem.Model;
 using Fire_Emblem.Serialization;
+using Fire_Emblem.Validation;
 
 namespace Fire_Emblem;
 
 public class Game {
     private GameView _gameView;
     private string _teamsFolder;
-    private InputParser _inputParser;
     private UnitCatalog _unitCatalog;
     private AbilityCatalog _abilityCatalog;
     private JsonDataLoader _jsonDataLoader;
     private TeamBuilder _teamBuilder;
+    private TeamValidator _teamValidator;
+    private CombatSystem _combatSystem;
 
     private List<Player> _players;
     
@@ -22,51 +25,54 @@ public class Game {
         _gameView = new GameView(view);
         _teamsFolder = teamsFolder;
         
-        _inputParser = new InputParser();
         _unitCatalog = new UnitCatalog();
         _abilityCatalog= new AbilityCatalog();
         _jsonDataLoader = new JsonDataLoader(_unitCatalog, _abilityCatalog);
         _teamBuilder = new TeamBuilder(_unitCatalog, _abilityCatalog);
-
+        _teamValidator = new TeamValidator();
         _players = new List<Player>();
+        _combatSystem = new CombatSystem(_players);
     }
     
     public void Play() {
-        LoadGame();
+        if (!LoadGame()) {return;}
+        Start();
     }
     
-    private void LoadGame() {
+    private bool LoadGame() {
         LoadCatalogs();
-        LoadPlayers();
+        LoadTeams();
+        if (!ValidateTeams()) {return false;}
+
+        return true;
     }
 
     private void LoadCatalogs() {
         _jsonDataLoader.LoadUnitCatalog(GameConfig.DefaultCharacterFilePath);
         _jsonDataLoader.LoadAbilityCatalog(GameConfig.DefaultAbilityFilePath);
     }
+    
+    private void LoadTeams() {
+        var (team1, team2) = _teamBuilder.BuildTeams(ReadTeamsFile());
+        
+        Player player1 = new Player();
+        Player player2 = new Player();
 
-    private void LoadPlayers() {
-        _players.Add(new Player(1));
-        _players.Add(new Player(2));
-    }
-
-    private void LoadTeams(string input) {
-        var playerTeams = _inputParser.ParseInput(input);
-        foreach (var VARIABLE in playerTeams) {
-            
-        }
+        player1.AddTeam(team1);
+        player2.AddTeam(team2);
+        
+        _players.Add(player1);
+        _players.Add(player2);
     }
     
-    private void ReadTeamsFile() {
+    private string ReadTeamsFile() {
         string[] filePathNames = Directory.GetFiles(_teamsFolder);
         _gameView.SayToSelectFile();
         for (int i = 0; i < filePathNames.Length; i++) {
             _gameView.ShowFileSelection(i, ReturnFileName(filePathNames[i]));
         }
-
         int input = _gameView.ReadLine();
-        string selectedFile = ReturnNormalizedFilePath(filePathNames[input]);
-        DeserializeUnits(selectedFile);
+        return ReturnNormalizedFilePath(filePathNames[input]);
         
     }
     private string ReturnFileName(string filePath) {
@@ -78,8 +84,18 @@ public class Game {
         string[] filePathParts = filePath.Split("\\");
         return Path.Combine(filePathParts);
     }
-    private void DeserializeUnits(string fileName) {
-        string jsonString = File.ReadAllText(fileName);
-        Console.WriteLine(jsonString);
+    private bool ValidateTeams() {
+        foreach (var player in _players) {
+            if (!_teamValidator.IsValid(player.Team)) {
+                _gameView.SayThatATeamIsInvalid();
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private void Start() {
+        _combatSystem.StartCombat();
     }
 }
