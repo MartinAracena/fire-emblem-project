@@ -12,7 +12,7 @@ public static class GameConfig {
     public static readonly int MinTeamUnits = 1;
     public static readonly int MaxTeamUnits = 3;
 
-    public static readonly int MaxDuplicateUnits = 0;
+    public static readonly int MaxDuplicateUnits = 1;
 
     public static readonly int MaxAbilitiesPerUnit = 2;
 

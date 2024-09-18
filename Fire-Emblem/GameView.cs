@@ -1,4 +1,5 @@
 using Fire_Emblem_View;
+using Fire_Emblem.Model;
 
 namespace Fire_Emblem; 
 
@@ -23,5 +24,41 @@ public class GameView {
 
     public void SayThatATeamIsInvalid() {
         _view.WriteLine("Archivo de equipos no válido");
+    }
+
+    public void TellAPlayerToSelectUnit(int playerId) {
+        _view.WriteLine($"Player {playerId} selecciona una opción");
+    }
+    
+    public void ShowUnitSelection(Team team) {
+        for (int i = 0; i < team.Units.Count; i++) {
+            _view.WriteLine($"{i}: {team.Units[i].Name}");
+        }
+    }
+    
+    public void SayThatAPlayerTurnBegins(int round, Player player, Unit unit) {
+        _view.WriteLine($"Round {round}: {unit.Name} (Player {player.PlayerId}) comienza");
+    }
+    
+    public void SayThatAUnitHasWeaponAdvantage(Unit unit1, Unit unit2) {
+        _view.WriteLine($"{unit1.Name} ({unit1.Weapon}) tiene ventaja con respecto a {unit2.Name} ({unit2.Weapon})");
+    }
+    
+    public void SayThatThereIsNoWeaponAdvantage() {
+        _view.WriteLine("Ninguna unidad tiene ventaja con respecto a la otra");
+    }
+    public void ShowAttackInformation(Unit attacker, Unit defender, int damage) {
+        _view.WriteLine($"{attacker.Name} ataca a {defender.Name} con {damage} de daño");
+    }
+    
+    public void ShowCombatResult(Unit attacker, Unit defender) {
+        _view.WriteLine($"{attacker.Name} ({attacker.currentHp}) : {defender.Name} ({defender.currentHp})");
+    }
+    
+    public void ShowWinner(Player player) {
+        _view.WriteLine($"Player {player.PlayerId} ganó");
+    }
+    public void SayThatNoUnitCanDoAFollowUp() {
+        _view.WriteLine($"Ninguna unidad puede hacer un follow up");
     }
 }

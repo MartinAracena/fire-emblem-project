@@ -31,7 +31,6 @@ public class Game {
         _teamBuilder = new TeamBuilder(_unitCatalog, _abilityCatalog);
         _teamValidator = new TeamValidator();
         _players = new List<Player>();
-        _combatSystem = new CombatSystem(_players);
     }
     
     public void Play() {
@@ -43,7 +42,7 @@ public class Game {
         LoadCatalogs();
         LoadTeams();
         if (!ValidateTeams()) {return false;}
-
+        LoadCombatSystem();
         return true;
     }
 
@@ -55,8 +54,8 @@ public class Game {
     private void LoadTeams() {
         var (team1, team2) = _teamBuilder.BuildTeams(ReadTeamsFile());
         
-        Player player1 = new Player();
-        Player player2 = new Player();
+        Player player1 = new Player(1);
+        Player player2 = new Player(2);
 
         player1.AddTeam(team1);
         player2.AddTeam(team2);
@@ -93,6 +92,10 @@ public class Game {
         }
 
         return true;
+    }
+
+    private void LoadCombatSystem() {
+        _combatSystem = new CombatSystem(_gameView, _players);
     }
 
     private void Start() {

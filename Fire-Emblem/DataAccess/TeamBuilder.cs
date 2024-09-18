@@ -1,4 +1,3 @@
-using System.Text.RegularExpressions;
 using Fire_Emblem.DataManagement;
 using Fire_Emblem.Model;
 
@@ -31,7 +30,10 @@ public class TeamBuilder {
             else {
                 string[] parts = line.Split(new[] { '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
                 string name = parts[0].Trim();
-                string[] abilities = parts[1].Trim().Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                List<string> abilities = new List<string>();
+                if (parts.Length > 1) {
+                    abilities = parts[1].Trim().Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+                }
                 currentTeam.AddUnit(CreateUnit(name, abilities));
             }
         }
@@ -39,8 +41,7 @@ public class TeamBuilder {
         return (team1, team2);
     }
     
-
-    private Unit CreateUnit(string unitName, string[] abilities) {
+    private Unit CreateUnit(string unitName, List<string> abilities) {
         var unit = _unitCatalog.GetUnit(unitName);
 
         foreach (var abilityName in abilities) {
