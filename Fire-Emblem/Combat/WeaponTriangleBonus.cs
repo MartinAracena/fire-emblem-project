@@ -26,4 +26,17 @@ public class WeaponTriangleBonus {
         }
         return 1.0;
     }
+
+    public void ShowUnitAdvantage(GameView gameView, Unit attacker, Unit defender) {
+        double advantage = CalculateBonus(attacker.Weapon, defender.Weapon);
+        if (advantage == GameConfig.WeaponTriangleBonus) {
+            gameView.SayThatAUnitHasWeaponAdvantage(attacker, defender);
+        }
+        else if (advantage == GameConfig.WeaponTrianglePenalty) {
+            gameView.SayThatAUnitHasWeaponAdvantage(defender, attacker);
+        }
+        else {
+            gameView.SayThatThereIsNoWeaponAdvantage();
+        }
+    }
 }

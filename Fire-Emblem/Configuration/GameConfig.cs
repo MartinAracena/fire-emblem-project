@@ -21,5 +21,7 @@ public static class GameConfig {
     public static readonly double WeaponTriangleBonus = 1.2;
 
     public static readonly double WeaponTrianglePenalty = 0.8;
+    
+    public static readonly int FollowUpMinSpdThreshold = 5;
 
 }

@@ -164,19 +164,33 @@ public class CombatSystem {
         var attackingUnit = attacker.SelectUnit(_gameView);
         var defendingUnit = defender.SelectUnit(_gameView);
         _gameView.SayThatAPlayerTurnBegins(_round, attacker, attackingUnit);
-    }
-    
-    private void NewShowUnitAdvantage() {
-        double advantage = _weaponTriangleBonus.CalculateBonus(_currentAttacker.Weapon, _currentDefender.Weapon);
-        if (advantage == GameConfig.WeaponTriangleBonus) {
-            _gameView.SayThatAUnitHasWeaponAdvantage(_currentAttacker, _currentDefender);
-        }
-        else if (advantage == GameConfig.WeaponTrianglePenalty) {
-            _gameView.SayThatAUnitHasWeaponAdvantage(_currentDefender, _currentAttacker);
-        }
-        else {
-            _gameView.SayThatThereIsNoWeaponAdvantage();
-        }
+        _weaponTriangleBonus.ShowUnitAdvantage(_gameView, attackingUnit, defendingUnit);
+        PerformAttack(attackingUnit, defendingUnit);
+        PerformAttack(defendingUnit, attackingUnit);
+        PerformFollowUpAttack(attackingUnit, defendingUnit);
+        _gameView.ShowCombatResult(attackingUnit, defendingUnit);
     }
 
+    private void StartCombat(Unit attacker , Unit defender) {
+        PerformAttack(attacker, defender);
+        PerformAttack(defender, attacker);
+        PerformFollowUpAttack(attacker, defender);
+    }
+
+    private void PerformAttack(Unit attacker, Unit defender) {
+        if (attacker.IsAlive() && defender.IsAlive()) {
+            defender.ReceiveDamage(_damageCalculator.CalculateDamage(attacker, defender));
+        }
+    }
+    private void PerformFollowUpAttack(Unit attacker, Unit defender) {
+        if (attacker.Spd >= defender.Spd + GameConfig.FollowUpMinSpdThreshold ) {
+            PerformAttack(attacker, defender);
+        }
+        else if (defender.Spd >= attacker.Spd + GameConfig.FollowUpMinSpdThreshold ) {
+            PerformAttack(defender, attacker);
+        }
+        else {
+            _gameView.SayThatNoUnitCanDoAFollowUp();
+        }
+    }
 }

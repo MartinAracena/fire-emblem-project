@@ -8,10 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70f99ba5-c1f5-480c-94a5-0ddb5b6adc02" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Fire-Emblem/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Fire-Emblem/.idea/aws.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Fire-Emblem/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Fire-Emblem/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Fire-Emblem/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Fire-Emblem/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Fire-Emblem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Fire-Emblem/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fire-Emblem-View/bin/Debug/net8.0/Fire-Emblem-View.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem-View/bin/Debug/net8.0/Fire-Emblem-View.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fire-Emblem-View/bin/Debug/net8.0/Fire-Emblem-View.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem-View/bin/Debug/net8.0/Fire-Emblem-View.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fire-Emblem-View/obj/Debug/net8.0/Fire-Emblem-View.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem-View/obj/Debug/net8.0/Fire-Emblem-View.AssemblyInfo.cs" afterDir="false" />
@@ -21,32 +18,12 @@
       <change beforePath="$PROJECT_DIR$/Fire-Emblem-View/obj/Debug/net8.0/Fire-Emblem-View.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem-View/obj/Debug/net8.0/Fire-Emblem-View.sourcelink.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fire-Emblem-View/obj/Debug/net8.0/ref/Fire-Emblem-View.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem-View/obj/Debug/net8.0/ref/Fire-Emblem-View.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fire-Emblem-View/obj/Debug/net8.0/refint/Fire-Emblem-View.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem-View/obj/Debug/net8.0/refint/Fire-Emblem-View.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fire-Emblem-View/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem-View/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fire-Emblem-View/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem-View/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fire-Emblem.Tests/bin/Debug/net8.0/Fire-Emblem-View.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem.Tests/bin/Debug/net8.0/Fire-Emblem-View.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fire-Emblem.Tests/bin/Debug/net8.0/Fire-Emblem-View.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem.Tests/bin/Debug/net8.0/Fire-Emblem-View.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fire-Emblem.Tests/bin/Debug/net8.0/Fire-Emblem.Tests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem.Tests/bin/Debug/net8.0/Fire-Emblem.Tests.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fire-Emblem.Tests/bin/Debug/net8.0/Fire-Emblem.Tests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem.Tests/bin/Debug/net8.0/Fire-Emblem.Tests.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fire-Emblem.Tests/bin/Debug/net8.0/Fire-Emblem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem.Tests/bin/Debug/net8.0/Fire-Emblem.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fire-Emblem.Tests/bin/Debug/net8.0/Fire-Emblem.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem.Tests/bin/Debug/net8.0/Fire-Emblem.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fire-Emblem.Tests/bin/Debug/net8.0/Fire-Emblem.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem.Tests/bin/Debug/net8.0/Fire-Emblem.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fire-Emblem.Tests/obj/Debug/net8.0/Fire-Emblem.Tests.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem.Tests/obj/Debug/net8.0/Fire-Emblem.Tests.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fire-Emblem.Tests/obj/Debug/net8.0/Fire-Emblem.Tests.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem.Tests/obj/Debug/net8.0/Fire-Emblem.Tests.AssemblyInfoInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fire-Emblem.Tests/obj/Debug/net8.0/Fire-Emblem.Tests.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem.Tests/obj/Debug/net8.0/Fire-Emblem.Tests.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fire-Emblem.Tests/obj/Debug/net8.0/Fire-Emblem.Tests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem.Tests/obj/Debug/net8.0/Fire-Emblem.Tests.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fire-Emblem.Tests/obj/Debug/net8.0/Fire-Emblem.Tests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem.Tests/obj/Debug/net8.0/Fire-Emblem.Tests.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fire-Emblem.Tests/obj/Debug/net8.0/Fire-Emblem.Tests.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem.Tests/obj/Debug/net8.0/Fire-Emblem.Tests.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fire-Emblem.Tests/obj/Debug/net8.0/ref/Fire-Emblem.Tests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem.Tests/obj/Debug/net8.0/ref/Fire-Emblem.Tests.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fire-Emblem.Tests/obj/Debug/net8.0/refint/Fire-Emblem.Tests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem.Tests/obj/Debug/net8.0/refint/Fire-Emblem.Tests.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fire-Emblem.Tests/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem.Tests/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fire-Emblem.Tests/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem.Tests/obj/rider.project.restore.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fire-Emblem/Combat/CombatSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem/Combat/CombatSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fire-Emblem/Combat/DamageCalculator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem/Combat/DamageCalculator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fire-Emblem/Combat/WeaponTriangleBonus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem/Combat/WeaponTriangleBonus.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fire-Emblem/Configuration/GameConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem/Configuration/GameConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fire-Emblem/DataAccess/TeamBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem/DataAccess/TeamBuilder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fire-Emblem/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem/Game.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fire-Emblem/GameView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem/GameView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fire-Emblem/Model/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem/Model/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fire-Emblem/Model/Unit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem/Model/Unit.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fire-Emblem/bin/Debug/net8.0/Fire-Emblem-View.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem/bin/Debug/net8.0/Fire-Emblem-View.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fire-Emblem/bin/Debug/net8.0/Fire-Emblem-View.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem/bin/Debug/net8.0/Fire-Emblem-View.pdb" afterDir="false" />
@@ -56,15 +33,12 @@
       <change beforePath="$PROJECT_DIR$/Fire-Emblem/obj/Debug/net8.0/Fire-Emblem.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem/obj/Debug/net8.0/Fire-Emblem.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fire-Emblem/obj/Debug/net8.0/Fire-Emblem.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem/obj/Debug/net8.0/Fire-Emblem.AssemblyInfoInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fire-Emblem/obj/Debug/net8.0/Fire-Emblem.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem/obj/Debug/net8.0/Fire-Emblem.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fire-Emblem/obj/Debug/net8.0/Fire-Emblem.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem/obj/Debug/net8.0/Fire-Emblem.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fire-Emblem/obj/Debug/net8.0/Fire-Emblem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem/obj/Debug/net8.0/Fire-Emblem.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fire-Emblem/obj/Debug/net8.0/Fire-Emblem.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem/obj/Debug/net8.0/Fire-Emblem.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fire-Emblem/obj/Debug/net8.0/Fire-Emblem.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem/obj/Debug/net8.0/Fire-Emblem.sourcelink.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fire-Emblem/obj/Debug/net8.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem/obj/Debug/net8.0/apphost.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fire-Emblem/obj/Debug/net8.0/ref/Fire-Emblem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem/obj/Debug/net8.0/ref/Fire-Emblem.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fire-Emblem/obj/Debug/net8.0/refint/Fire-Emblem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem/obj/Debug/net8.0/refint/Fire-Emblem.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fire-Emblem/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fire-Emblem/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Fire-Emblem/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +82,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected=".NET Project.Fire-Emblem">
+  <component name="RunManager">
     <configuration name="Fire-Emblem" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -139,6 +113,7 @@
       <workItem from="1726364472772" duration="2766000" />
       <workItem from="1726462317014" duration="1194000" />
       <workItem from="1726622181444" duration="11192000" />
+      <workItem from="1726701999902" duration="11050000" />
     </task>
     <servers />
   </component>

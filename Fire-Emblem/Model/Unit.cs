@@ -41,9 +41,6 @@ public class Unit {
     }
 
     public bool IsAlive() {
-        if (currentHp <= 0) {
-            return false;
-        }
-        return true;
+        return currentHp > 0;
     }
 }
