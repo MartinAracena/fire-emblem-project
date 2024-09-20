@@ -157,7 +157,15 @@ public class CombatSystem {
     }
 
     public void StartCombat() {
-        StartRound(_players.First(), _players.Last());
+        while (_isRunning) {
+            StartRound(_players.First(), _players.Last());
+            RemoveDefeatedUnits();
+            SwitchTurn();
+            _round++;
+            
+            CheckWinCondition();
+        }
+        ShowWinner();
     }
 
     private void StartRound(Player attacker, Player defender) {
@@ -176,12 +184,17 @@ public class CombatSystem {
         PerformAttack(defender, attacker);
         PerformFollowUpAttack(attacker, defender);
     }
+    
+    private bool CanPerformCombat(Unit attacker, Unit defender) {
+        return attacker.IsAlive() && defender.IsAlive();
+    }
 
     private void PerformAttack(Unit attacker, Unit defender) {
-        if (attacker.IsAlive() && defender.IsAlive()) {
-            defender.ReceiveDamage(_damageCalculator.CalculateDamage(attacker, defender));
-        }
+        int damage = _damageCalculator.CalculateDamage(attacker, defender);
+        defender.ReceiveDamage(damage);
+        _gameView.ShowAttackInformation(attacker, defender, damage);
     }
+    
     private void PerformFollowUpAttack(Unit attacker, Unit defender) {
         if (attacker.Spd >= defender.Spd + GameConfig.FollowUpMinSpdThreshold ) {
             PerformAttack(attacker, defender);
@@ -189,7 +202,7 @@ public class CombatSystem {
         else if (defender.Spd >= attacker.Spd + GameConfig.FollowUpMinSpdThreshold ) {
             PerformAttack(defender, attacker);
         }
-        else {
+        else{
             _gameView.SayThatNoUnitCanDoAFollowUp();
         }
     }
