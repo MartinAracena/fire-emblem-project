@@ -35,7 +35,7 @@ public class Game {
     
     public void Play() {
         if (!LoadGame()) {return;}
-        Start();
+        _combatSystem.Start();
     }
     
     private bool LoadGame() {
@@ -96,9 +96,5 @@ public class Game {
 
     private void LoadCombatSystem() {
         _combatSystem = new CombatSystem(_gameView, _players);
-    }
-
-    private void Start() {
-        _combatSystem.StartCombat();
     }
 }

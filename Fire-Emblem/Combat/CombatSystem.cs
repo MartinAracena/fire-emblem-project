@@ -9,8 +9,8 @@ public class CombatSystem {
     private DamageCalculator _damageCalculator;
     
     private List<Player> _players;
+    private int _currentPlayerIndex;
     
-    private Player _winner;
     private bool _isRunning;
     private int _round;
     
@@ -19,30 +19,35 @@ public class CombatSystem {
         _weaponTriangleBonus = new WeaponTriangleBonus();
         _damageCalculator = new DamageCalculator();
         _players = players;
+        _currentPlayerIndex = 0;
         _isRunning = true;
         _round = 1;
     }
     
-    public void StartCombat() {
+    public void Start() {
         while (_isRunning) {
-            StartRound(_players.First(), _players.Last());
-            RemoveDefeatedUnits();
+            ExecuteRound();
+            RemoveDefeatedUnits();  
+            CheckWinCondition();
             SwitchTurn();
             _round++;
-            
-            CheckWinCondition();
         }
-        ShowWinner();
     }
 
-    private void StartRound(Player attacker, Player defender) {
-        var attackingUnit = attacker.SelectUnit(_gameView);
-        var defendingUnit = defender.SelectUnit(_gameView);
-        _gameView.SayThatAPlayerTurnBegins(_round, attacker, attackingUnit);
+    private Player GetCurrentPlayer() {
+        return _players[_currentPlayerIndex];
+    }
+
+    private Player GetOpponentPlayer() {
+        return _players[(_currentPlayerIndex + 1) % _players.Count];
+    }
+
+    private void ExecuteRound() {
+        var attackingUnit = GetCurrentPlayer().SelectUnit(_gameView);
+        var defendingUnit = GetOpponentPlayer().SelectUnit(_gameView);
+        _gameView.SayThatAPlayerTurnBegins(_round, GetCurrentPlayer(), attackingUnit);
         _weaponTriangleBonus.ShowUnitAdvantage(_gameView, attackingUnit, defendingUnit);
-        PerformAttack(attackingUnit, defendingUnit);
-        PerformAttack(defendingUnit, attackingUnit);
-        PerformFollowUpAttack(attackingUnit, defendingUnit);
+        StartCombat(attackingUnit, defendingUnit);
         _gameView.ShowCombatResult(attackingUnit, defendingUnit);
     }
 
@@ -53,17 +58,17 @@ public class CombatSystem {
     }
     
     private void PerformAttack(Unit attacker, Unit defender) {
-        if(!CanPerformAttack(attacker)) return;
+        if(!CanPerformAttack(attacker, defender)) return;
         int damage = _damageCalculator.CalculateDamage(attacker, defender);
         defender.ReceiveDamage(damage);
         _gameView.ShowAttackInformation(attacker, defender, damage);
     }
-    private bool CanPerformAttack(Unit attacker) {
-        return attacker.IsAlive();
+    private bool CanPerformAttack(Unit attacker, Unit defender) {
+        return attacker.IsAlive() && defender.IsAlive();
     }
     
     private void PerformFollowUpAttack(Unit attacker, Unit defender) {
-        if (!attacker.IsAlive() || !defender.IsAlive()) {return;}
+        if (!CanPerformAttack(attacker, defender)) {return;}
         if (attacker.Spd >= defender.Spd + GameConfig.FollowUpMinSpdThreshold ) {
             PerformAttack(attacker, defender);
         }
@@ -75,29 +80,19 @@ public class CombatSystem {
         }
     }
     
-    private bool CheckWinCondition() {
-        var alivePlayers = _players.Where(player => player.Team.Units.Any(unit => unit.currentHp > 0)).ToList();
+    private void CheckWinCondition() {
+        var alivePlayers = _players.Where(player => player.Team.Units.Any(unit => unit.IsAlive())).ToList();
         if (alivePlayers.Count == 1) {
             _isRunning = false;
-            _winner = alivePlayers.Single();
-            return false;
+            _gameView.ShowWinner(alivePlayers.Single());
         }
-
-        return true;
     }
     private void RemoveDefeatedUnits(){
-        foreach (var player in _players){
-            var unitsToRemove = player.Team.Units.Where(unit => unit.currentHp == 0).ToList();
-            foreach (var unit in unitsToRemove){
-                player.RemoveUnit(unit);
-            }
+        foreach (var player in _players) {
+            player.Team.Units.RemoveAll(unit => !unit.IsAlive());
         }
     }
     private void SwitchTurn() {
-        _players.Reverse();
-    }
-
-    private void ShowWinner() {
-        _gameView.ShowWinner(_winner);
+        _currentPlayerIndex = (_currentPlayerIndex + 1) % _players.Count;
     }
 }
