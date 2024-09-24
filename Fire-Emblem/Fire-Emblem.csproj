@@ -10,7 +10,10 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Fire-Emblem-View\Fire-Emblem-View.csproj" />
+
+
     </ItemGroup>
+
 
 
 

@@ -52,7 +52,7 @@ public class GameView {
     }
     
     public void ShowCombatResult(Unit attacker, Unit defender) {
-        _view.WriteLine($"{attacker.Name} ({attacker.currentHp}) : {defender.Name} ({defender.currentHp})");
+        _view.WriteLine($"{attacker.Name} ({attacker.CurrentHp}) : {defender.Name} ({defender.CurrentHp})");
     }
     
     public void ShowWinner(Player player) {

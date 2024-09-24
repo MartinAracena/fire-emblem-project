@@ -3,8 +3,15 @@
 namespace Fire_Emblem.Combat; 
 
 public class CombatContext {
-    public CombatPhase CombatPhase { get; set; }
-    public Unit attacker { get; set; }
-    public Unit defender { get; set; }
-    public int damage { get; set; }
+    public GameView GameView;
+    public CombatPhase CurrentPhase;
+    public Unit Attacker;
+    public Unit Defender;
+
+    public CombatContext(GameView gameView , CombatPhase currentPhase, Unit attacker, Unit defender) {
+        GameView = gameView;
+        CurrentPhase = currentPhase;
+        Attacker = attacker;
+        Defender = defender;
+    }
 }

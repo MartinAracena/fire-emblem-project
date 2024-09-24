@@ -2,6 +2,7 @@
 
 public enum CombatPhase {
     BeforeCombat,
+    StartOfCombat,
     FirstAttack,
     CounterAttack,
     FollowUpAttack,

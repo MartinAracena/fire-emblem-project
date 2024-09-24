@@ -50,13 +50,16 @@ public class CombatSystem {
         StartCombat(attackingUnit, defendingUnit);
         _gameView.ShowCombatResult(attackingUnit, defendingUnit);
     }
-
     private void StartCombat(Unit attacker , Unit defender) {
+        StartOfCombatPhase(attacker, defender);
         PerformAttack(attacker, defender);
         PerformAttack(defender, attacker);
         PerformFollowUpAttack(attacker, defender);
     }
-    
+    private void StartOfCombatPhase(Unit attacker, Unit defender) {
+        CombatContext context = new CombatContext(_gameView, CombatPhase.StartOfCombat, attacker, defender);
+        ActivateAbilities(context, attacker, defender);
+    }
     private void PerformAttack(Unit attacker, Unit defender) {
         if(!CanPerformAttack(attacker, defender)) return;
         int damage = _damageCalculator.CalculateDamage(attacker, defender);
@@ -94,5 +97,14 @@ public class CombatSystem {
     }
     private void SwitchTurn() {
         _currentPlayerIndex = (_currentPlayerIndex + 1) % _players.Count;
+    }
+
+    private void ActivateAbilities(CombatContext context, Unit attacker, Unit defender) {
+        attacker.ActivateAbilities(context);
+        defender.ActivateAbilities(context);
+    }
+
+    private void DeactivateAllAbilities() {
+        
     }
 }

@@ -48,7 +48,6 @@ public class TeamBuilder {
             var ability = _abilityCatalog.GetAbility(abilityName);
             unit.AddAbility(ability);
         }
-
         return unit;
     }
 }
