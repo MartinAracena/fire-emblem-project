@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Luna\\.nuget\\packages\\": {}
+    "C:\\Users\\hollo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\SourceCode\\Universidad\\2024-2\\diseno-detallado-software\\proyecto\\fire-emblem-project\\Fire-Emblem-View\\Fire-Emblem-View.csproj",
+      "projectUniqueName": "C:\\SourceCode\\fire-emblem-project\\Fire-Emblem-View\\Fire-Emblem-View.csproj",
       "projectName": "Fire-Emblem-View",
-      "projectPath": "C:\\SourceCode\\Universidad\\2024-2\\diseno-detallado-software\\proyecto\\fire-emblem-project\\Fire-Emblem-View\\Fire-Emblem-View.csproj",
-      "packagesPath": "C:\\Users\\Luna\\.nuget\\packages\\",
-      "outputPath": "C:\\SourceCode\\Universidad\\2024-2\\diseno-detallado-software\\proyecto\\fire-emblem-project\\Fire-Emblem-View\\obj\\",
+      "projectPath": "C:\\SourceCode\\fire-emblem-project\\Fire-Emblem-View\\Fire-Emblem-View.csproj",
+      "packagesPath": "C:\\Users\\hollo\\.nuget\\packages\\",
+      "outputPath": "C:\\SourceCode\\fire-emblem-project\\Fire-Emblem-View\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Luna\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\hollo\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -64,7 +64,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\hollo\\.dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -17,13 +17,13 @@ public class DamageCalculator {
     }
 
     private int CalculateAttack(Unit attacker, Unit defender) {
-        double attack = attacker.Atk*_weaponTriangleBonus.CalculateBonus(attacker.Weapon, defender.Weapon);
+        double attack = attacker.GetStat(StatType.Atk)*_weaponTriangleBonus.CalculateBonus(attacker.Weapon, defender.Weapon);
         return (int)Math.Floor(attack);
     }
     private int CalculateDefense(Unit attacker, Unit defender) {
         if (attacker.Weapon == WeaponType.Magic) {
-            return defender.Res;
+            return defender.GetStat(StatType.Res);
         }
-        return defender.Def;
+        return defender.GetStat(StatType.Def);
     }
 }

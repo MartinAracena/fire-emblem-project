@@ -21,17 +21,14 @@ public class UnitCatalog {
         int spd = int.Parse(unitInfo.Spd);
         int def = int.Parse(unitInfo.Def);
         int res = int.Parse(unitInfo.Res);
+        Stats stats = new Stats(hp, atk, spd, def, res);
         
         return new Unit(
             unitInfo.Name,
             weapon,
             gender,
             unitInfo.DeathQuote,
-            hp,
-            atk,
-            spd,
-            def,
-            res
+            stats
         );
     }
 }

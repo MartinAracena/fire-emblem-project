@@ -9,7 +9,9 @@ public class GameView {
     public GameView(View view) {
         _view = view;
     }
-
+    public void WriteLine(string line) {
+        _view.WriteLine(line);
+    }
     public int ReadLine() {
         return int.Parse(_view.ReadLine());
     }
@@ -52,7 +54,7 @@ public class GameView {
     }
     
     public void ShowCombatResult(Unit attacker, Unit defender) {
-        _view.WriteLine($"{attacker.Name} ({attacker.CurrentHp}) : {defender.Name} ({defender.CurrentHp})");
+        _view.WriteLine($"{attacker.Name} ({attacker.GetCurrentHp()}) : {defender.Name} ({defender.GetCurrentHp()})");
     }
     
     public void ShowWinner(Player player) {
@@ -60,5 +62,12 @@ public class GameView {
     }
     public void SayThatNoUnitCanDoAFollowUp() {
         _view.WriteLine($"Ninguna unidad puede hacer un follow up");
+    }
+
+    public void ShowStartOfCombatStatsChange(Stats stats) {
+    }
+    public void ShowFirstAttackStatChange(Stats stats) {
+    }
+    public void ShowFollowUpStatChange(Stats stats) {
     }
 }

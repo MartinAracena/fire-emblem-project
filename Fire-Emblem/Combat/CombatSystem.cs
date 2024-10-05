@@ -72,10 +72,10 @@ public class CombatSystem {
     
     private void PerformFollowUpAttack(Unit attacker, Unit defender) {
         if (!CanPerformAttack(attacker, defender)) {return;}
-        if (attacker.Spd >= defender.Spd + GameConfig.FollowUpMinSpdThreshold ) {
+        if (attacker.GetStat(StatType.Spd) >= defender.GetStat(StatType.Spd) + GameConfig.FollowUpMinSpdThreshold ) {
             PerformAttack(attacker, defender);
         }
-        else if (defender.Spd >= attacker.Spd + GameConfig.FollowUpMinSpdThreshold ) {
+        else if (defender.GetStat(StatType.Spd) >= attacker.GetStat(StatType.Spd) + GameConfig.FollowUpMinSpdThreshold ) {
             PerformAttack(defender, attacker);
         }
         else{

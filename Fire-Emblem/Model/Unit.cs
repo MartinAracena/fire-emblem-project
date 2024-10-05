@@ -8,28 +8,23 @@ public class Unit {
     public GenderType Gender { get; set; }
     public string DeathQuote { get; set; }
     
-    public int HP { get; set; }
-    public int Atk { get; set; }
-    public int Spd { get; set; }
-    public int Def { get; set; }
-    public int Res { get; set; }
+    private Stats _stats;
 
-    public int CurrentHp;
+    private int _currentHp;
 
     public List<Ability> Abilities = new List<Ability>();
     
-    public Unit(string name, WeaponType weapon, GenderType gender, string deathQuote, int hp, int atk, int spd, int def, int res) {
+    public Unit(string name, WeaponType weapon, GenderType gender, string deathQuote, Stats stats) {
         Name = name;
         Weapon = weapon;
         Gender = gender;
         DeathQuote = deathQuote;
-        HP = hp;
-        Atk = atk;
-        Spd = spd;
-        Def = def;
-        Res = res;
+        _stats = stats;
+        _currentHp = stats.GetStat(StatType.HP);
+    }
 
-        CurrentHp = hp;
+    public int GetCurrentHp() {
+        return _currentHp;
     }
 
     public void AddAbility(Ability ability) {
@@ -42,35 +37,22 @@ public class Unit {
         }
     }
 
-    public void AddStat(StatType statType, int value) {
-        switch (statType) {
-            case StatType.HP:
-                HP += value;
-                break;
-            case StatType.Atk:
-                Atk += value;
-                break;
-            case StatType.Spd:
-                Spd += value;
-                break;
-            case StatType.Def:
-                Def += value;
-                break;
-            case StatType.Res:
-                Res += value;
-                break;
-            default:
-                throw new NotSupportedException("This stat hasn't been implemented yet");
-        }
+    public int GetStat(StatType stat) {
+        return _stats.GetStat(stat);
     }
+
+    public void AddStats(Stats stats) {
+        stats.AddStat(stats);
+    }
+    
     public void ReceiveDamage(int damage) {
-        CurrentHp -= damage;
-        if (CurrentHp < 0) {
-            CurrentHp = 0;
+        _currentHp -= damage;
+        if (_currentHp < 0) {
+            _currentHp = 0;
         }
     }
     
     public bool IsAlive() {
-        return CurrentHp > 0;
+        return _currentHp > 0;
     }
 }
