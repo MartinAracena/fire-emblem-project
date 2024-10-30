@@ -72,10 +72,10 @@ public class CombatSystem {
     
     private void PerformFollowUpAttack(Unit attacker, Unit defender) {
         if (!CanPerformAttack(attacker, defender)) {return;}
-        if (attacker.GetStat(StatType.Spd) >= defender.GetStat(StatType.Spd) + GameConfig.FollowUpMinSpdThreshold ) {
+        if (attacker.GetStat(StatType.Speed) >= defender.GetStat(StatType.Speed) + GameConfig.FollowUpMinSpdThreshold ) {
             PerformAttack(attacker, defender);
         }
-        else if (defender.GetStat(StatType.Spd) >= attacker.GetStat(StatType.Spd) + GameConfig.FollowUpMinSpdThreshold ) {
+        else if (defender.GetStat(StatType.Speed) >= attacker.GetStat(StatType.Speed) + GameConfig.FollowUpMinSpdThreshold ) {
             PerformAttack(defender, attacker);
         }
         else{
@@ -104,7 +104,21 @@ public class CombatSystem {
         defender.ActivateAbilities(context);
     }
 
-    private void DeactivateAllAbilities() {
+    private void StartBattle() {
+        ActivateAbilities();
+        ExecuteAttacks();
+        DeactivateAbilities();
+    }
+
+    private void ActivateAbilities() {
+        
+    }
+
+    private void ExecuteAttacks() {
+        
+    }
+
+    private void DeactivateAbilities() {
         
     }
 }

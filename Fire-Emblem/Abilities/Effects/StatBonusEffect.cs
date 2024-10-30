@@ -4,9 +4,11 @@ using Fire_Emblem.Model;
 namespace Fire_Emblem.Abilities.Effects; 
 
 public class StatBonusEffect : IEffect {
-    private Stat _stat;
+    private StatType _statType;
+    private int _value;
     public StatBonusEffect(StatType statType, int value) {
-        _stat = new Stat(statType, value);
+        _statType = statType;
+        _value = value;
     }
     public void Apply(Unit owner, CombatContext context) {
     }

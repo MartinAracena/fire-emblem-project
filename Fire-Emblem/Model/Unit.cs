@@ -6,9 +6,9 @@ public class Unit {
     public string Name { get; set; }
     public WeaponType Weapon { get; set; }
     public GenderType Gender { get; set; }
-    public string DeathQuote { get; set; }
+    private string DeathQuote { get; set; }
     
-    private Stats _stats;
+    private Stats _stats { get; }
 
     private int _currentHp;
 
@@ -20,7 +20,7 @@ public class Unit {
         Gender = gender;
         DeathQuote = deathQuote;
         _stats = stats;
-        _currentHp = stats.GetStat(StatType.HP);
+        _currentHp = _stats.GetStat(StatType.Health);
     }
 
     public int GetCurrentHp() {
@@ -39,10 +39,6 @@ public class Unit {
 
     public int GetStat(StatType stat) {
         return _stats.GetStat(stat);
-    }
-
-    public void AddStats(Stats stats) {
-        stats.AddStat(stats);
     }
     
     public void ReceiveDamage(int damage) {

@@ -16,12 +16,7 @@ public class UnitCatalog {
         WeaponType weapon = Enum.Parse<WeaponType>(unitInfo.Weapon, true);
         GenderType gender = Enum.Parse<GenderType>(unitInfo.Gender, true);
         
-        int hp = int.Parse(unitInfo.HP);
-        int atk = int.Parse(unitInfo.Atk);
-        int spd = int.Parse(unitInfo.Spd);
-        int def = int.Parse(unitInfo.Def);
-        int res = int.Parse(unitInfo.Res);
-        Stats stats = new Stats(hp, atk, spd, def, res);
+        Stats stats = GetStatsFromUnitInfo(unitInfo);
         
         return new Unit(
             unitInfo.Name,
@@ -29,6 +24,15 @@ public class UnitCatalog {
             gender,
             unitInfo.DeathQuote,
             stats
+        );
+    }
+    private Stats GetStatsFromUnitInfo(UnitInfo unitInfo) {
+        return new Stats(
+            int.Parse(unitInfo.HP),
+            int.Parse(unitInfo.Atk),
+            int.Parse(unitInfo.Spd),
+            int.Parse(unitInfo.Def),
+            int.Parse(unitInfo.Res)
         );
     }
 }

@@ -1,5 +1,3 @@
-using Fire_Emblem.DataAccess;
-
 namespace Fire_Emblem.Model;
 
 public class Player {
@@ -22,5 +20,9 @@ public class Player {
         gameView.ShowUnitSelection(Team);
         return Team.Units[gameView.ReadLine()];
     }
-    
+
+    public bool HasUnits() {
+        return Team.HasUnits();
+    }
+
 }

@@ -1,6 +1,7 @@
 ﻿using Fire_Emblem_View;
 using Fire_Emblem.Combat;
 using Fire_Emblem.Configuration;
+using Fire_Emblem.Controllers;
 using Fire_Emblem.DataAccess;
 using Fire_Emblem.DataManagement;
 using Fire_Emblem.Model;
@@ -18,6 +19,8 @@ public class Game {
     private TeamBuilder _teamBuilder;
     private TeamValidator _teamValidator;
     private CombatSystem _combatSystem;
+    
+    private GameController _gameController;
 
     private List<Player> _players;
     
@@ -35,7 +38,7 @@ public class Game {
     
     public void Play() {
         if (!LoadGame()) {return;}
-        _combatSystem.Start();
+        _gameController.StartGame();
     }
     
     private bool LoadGame() {
@@ -96,5 +99,6 @@ public class Game {
 
     private void LoadCombatSystem() {
         _combatSystem = new CombatSystem(_gameView, _players);
+        _gameController = new GameController(_gameView, _players);
     }
 }

@@ -1,9 +1,9 @@
 ﻿namespace Fire_Emblem.Model; 
 
 public enum StatType {
-    HP,
-    Atk,
-    Spd,
-    Def,
-    Res
+    Health,
+    Attack,
+    Speed,
+    Defense,
+    Resistance
 }
