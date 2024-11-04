@@ -18,11 +18,15 @@ public class Player {
     public Unit SelectUnit(GameView gameView) {
         gameView.TellAPlayerToSelectUnit(PlayerId);
         gameView.ShowUnitSelection(Team);
-        return Team.Units[gameView.ReadLine()];
-    }
+            return Team.Units[gameView.ReadLine()];
+        }
 
     public bool HasUnits() {
         return Team.HasUnits();
+    }
+
+    public Unit GetUnit(int index) {
+        return Team.Units[index];
     }
 
 }

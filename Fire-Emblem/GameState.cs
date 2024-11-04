@@ -4,7 +4,7 @@ using Fire_Emblem.Model;
 namespace Fire_Emblem;
 
 public class GameState {
-    public int CurrentPlayerId;
-    public List<Player> Players;
+    public int CurrentPlayerIndex;
+    public Players Players;
     public int Round;
 }

@@ -18,7 +18,6 @@ public class Game {
     private JsonDataLoader _jsonDataLoader;
     private TeamBuilder _teamBuilder;
     private TeamValidator _teamValidator;
-    private CombatSystem _combatSystem;
     
     private GameController _gameController;
 
@@ -98,7 +97,6 @@ public class Game {
     }
 
     private void LoadCombatSystem() {
-        _combatSystem = new CombatSystem(_gameView, _players);
         _gameController = new GameController(_gameView, _players);
     }
 }
