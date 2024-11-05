@@ -28,5 +28,4 @@ public class Player {
     public Unit GetUnit(int index) {
         return Team.Units[index];
     }
-
 }

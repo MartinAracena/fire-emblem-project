@@ -20,8 +20,8 @@ public class Game {
     private TeamValidator _teamValidator;
     
     private GameController _gameController;
-
-    private List<Player> _players;
+    
+    private GameState _gameState;
     
     public Game(View view, string teamsFolder) {
         _gameView = new GameView(view);
@@ -32,7 +32,8 @@ public class Game {
         _jsonDataLoader = new JsonDataLoader(_unitCatalog, _abilityCatalog);
         _teamBuilder = new TeamBuilder(_unitCatalog, _abilityCatalog);
         _teamValidator = new TeamValidator();
-        _players = new List<Player>();
+
+        _gameState = new GameState();
     }
     
     public void Play() {
@@ -41,11 +42,16 @@ public class Game {
     }
     
     private bool LoadGame() {
+        LoadPlayers();
         LoadCatalogs();
-        LoadTeams();
-        if (!ValidateTeams()) {return false;}
+        if (!LoadTeams()) {return false;}
         LoadCombatSystem();
         return true;
+    }
+    
+    private void LoadPlayers() {
+        _gameState.PlayerOne = new Player(1);
+        _gameState.PlayerTwo = new Player(2);
     }
 
     private void LoadCatalogs() {
@@ -53,17 +59,11 @@ public class Game {
         _jsonDataLoader.LoadAbilityCatalog(GameConfig.DefaultAbilityFilePath);
     }
     
-    private void LoadTeams() {
-        var (team1, team2) = _teamBuilder.BuildTeams(ReadTeamsFile());
-        
-        Player player1 = new Player(1);
-        Player player2 = new Player(2);
-
-        player1.AddTeam(team1);
-        player2.AddTeam(team2);
-        
-        _players.Add(player1);
-        _players.Add(player2);
+    private bool LoadTeams() {
+        var (teamOne, teamTwo) = _teamBuilder.BuildTeams(ReadTeamsFile());
+        _gameState.PlayerOne.AddTeam(teamOne);
+        _gameState.PlayerTwo.AddTeam(teamTwo);
+        return ValidateTeams(teamOne, teamTwo);
     }
     
     private string ReadTeamsFile() {
@@ -85,18 +85,20 @@ public class Game {
         string[] filePathParts = filePath.Split("\\");
         return Path.Combine(filePathParts);
     }
-    private bool ValidateTeams() {
-        foreach (var player in _players) {
-            if (!_teamValidator.IsValid(player.Team)) {
-                _gameView.SayThatATeamIsInvalid();
-                return false;
-            }
+    private bool ValidateTeams(Team team1, Team team2) {
+        if (!_teamValidator.IsValid(team1)) {
+            _gameView.SayThatATeamIsInvalid();
+            return false;
+        }
+        if (!_teamValidator.IsValid(team2)) {
+            _gameView.SayThatATeamIsInvalid();
+            return false;
         }
 
         return true;
     }
 
     private void LoadCombatSystem() {
-        _gameController = new GameController(_gameView, _players);
+        _gameController = new GameController(_gameView, _gameState);
     }
 }

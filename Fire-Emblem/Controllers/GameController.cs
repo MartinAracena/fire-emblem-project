@@ -12,13 +12,12 @@ public class GameController {
     private Player _currentPlayer;
     private Player _opponentPlayer;
 
-    public GameController(GameView gameView, List<Player> players) {
+    public GameController(GameView gameView, GameState gameState) {
         _gameView = gameView;
-        _playerOne = players[0];
-        _playerTwo = players[1];
-        _battleController = new BattleController(gameView);
+        _playerOne = gameState.PlayerOne;
+        _playerTwo = gameState.PlayerTwo;
         _round = 1;
-        
+        _battleController = new BattleController(gameView);
         _currentPlayer = _playerOne;
         _opponentPlayer = _playerTwo;
     }
