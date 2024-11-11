@@ -12,7 +12,7 @@ public class Unit {
 
     private int _currentHp;
 
-    public List<Ability> Abilities = new List<Ability>();
+    public List<Skill> Abilities = new List<Skill>();
     
     public Unit(string name, WeaponType weapon, GenderType gender, string deathQuote, Stats stats) {
         Name = name;
@@ -27,8 +27,8 @@ public class Unit {
         return _currentHp;
     }
 
-    public void AddAbility(Ability ability) {
-        Abilities.Add(ability);
+    public void AddAbility(Skill skill) {
+        Abilities.Add(skill);
     }
 
     public void ActivateAbilities(CombatContext context) {

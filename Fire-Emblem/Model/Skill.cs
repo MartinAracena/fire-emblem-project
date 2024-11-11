@@ -4,13 +4,13 @@ using Fire_Emblem.Combat;
 
 namespace Fire_Emblem.Model;
 
-public class Ability {
+public class Skill {
     public string Name { get; set; }
     public string Description { get; set; }
     private List<IEffect> Effects { get; set; }
     private List<ICondition> Conditions { get; set; }
 
-    public Ability(string name, string description, List<IEffect> effects, List<ICondition> conditions) {
+    public Skill(string name, string description, List<IEffect> effects, List<ICondition> conditions) {
         Name = name;
         Description = description;
         Effects = effects;
