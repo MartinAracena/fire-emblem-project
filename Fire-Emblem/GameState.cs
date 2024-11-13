@@ -1,4 +1,3 @@
-using Fire_Emblem.Combat;
 using Fire_Emblem.Model;
 
 namespace Fire_Emblem;

@@ -1,5 +1,4 @@
 ﻿using Fire_Emblem_View;
-using Fire_Emblem.Combat;
 using Fire_Emblem.Configuration;
 using Fire_Emblem.Controllers;
 using Fire_Emblem.DataAccess;

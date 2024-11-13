@@ -1,6 +1,6 @@
-using Fire_Emblem.Abilities.Conditions;
-using Fire_Emblem.Abilities.Effects;
-using Fire_Emblem.Combat;
+using Fire_Emblem.Battle;
+using Fire_Emblem.Skills.Conditions;
+using Fire_Emblem.Skills.Effects;
 
 namespace Fire_Emblem.Model;
 
@@ -17,15 +17,15 @@ public class Skill {
         Conditions = conditions;
     }
     
-    public void Activate(Unit owner, CombatContext context) {
-        if (Conditions.All(condition => condition.IsApplicable(owner, context))) {
+    public void Activate(Unit owner, BattleContext context) {
+        if (Conditions.All(condition => condition.IsMet(owner, context))) {
             foreach (var effect in Effects) {
                 effect.Apply(owner, context);
             }
         }
     }
     
-    public void Deactivate(Unit owner, CombatContext context) {
+    public void Deactivate(Unit owner, BattleContext context) {
         foreach (var effect in Effects) {
             effect.Remove(owner, context);
         }

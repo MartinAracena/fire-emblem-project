@@ -1,4 +1,4 @@
-using Fire_Emblem.Combat;
+using Fire_Emblem.Battle;
 
 namespace Fire_Emblem.Model; 
 
@@ -13,6 +13,8 @@ public class Unit {
     private int _currentHp;
 
     public List<Skill> Abilities = new List<Skill>();
+    
+    Unit LastEnemy  { get; set; }
     
     public Unit(string name, WeaponType weapon, GenderType gender, string deathQuote, Stats stats) {
         Name = name;
@@ -31,7 +33,7 @@ public class Unit {
         Abilities.Add(skill);
     }
 
-    public void ActivateAbilities(CombatContext context) {
+    public void ActivateAbilities(BattleContext context) {
         foreach (var ability in Abilities) {
             ability.Activate(this, context);
         }

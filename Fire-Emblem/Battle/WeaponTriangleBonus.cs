@@ -1,7 +1,7 @@
 using Fire_Emblem.Configuration;
 using Fire_Emblem.Model;
 
-namespace Fire_Emblem.Combat; 
+namespace Fire_Emblem.Battle; 
 
 public class WeaponTriangleBonus {
     private double _advantageMultiplier = GameConfig.WeaponTriangleBonus;

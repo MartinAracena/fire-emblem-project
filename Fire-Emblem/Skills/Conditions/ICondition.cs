@@ -1,8 +1,8 @@
-using Fire_Emblem.Combat;
+using Fire_Emblem.Battle;
 using Fire_Emblem.Model;
 
-namespace Fire_Emblem.Abilities.Conditions;
+namespace Fire_Emblem.Skills.Conditions;
 
 public interface ICondition {
-    bool IsApplicable(Unit owner, CombatContext context);
+    bool IsMet(Unit owner, BattleContext context);
 }

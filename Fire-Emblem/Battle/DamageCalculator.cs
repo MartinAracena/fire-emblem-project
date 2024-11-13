@@ -1,6 +1,6 @@
 using Fire_Emblem.Model;
 
-namespace Fire_Emblem.Combat; 
+namespace Fire_Emblem.Battle; 
 
 public class DamageCalculator {
     private WeaponTriangleBonus _weaponTriangleBonus;

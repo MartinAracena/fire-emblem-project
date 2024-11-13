@@ -1,7 +1,7 @@
-﻿using Fire_Emblem.Combat;
+﻿using Fire_Emblem.Battle;
 using Fire_Emblem.Model;
 
-namespace Fire_Emblem.Abilities.Conditions; 
+namespace Fire_Emblem.Skills.Conditions; 
 
 public class CombatPhaseCondition : ICondition {
     private CombatPhase _combatPhase;
@@ -9,7 +9,7 @@ public class CombatPhaseCondition : ICondition {
     public CombatPhaseCondition(CombatPhase combatPhase) {
         _combatPhase = combatPhase;
     }
-    public bool IsApplicable(Unit owner, CombatContext context) {
+    public bool IsMet(Unit owner, BattleContext context) {
         return _combatPhase == context.CurrentPhase;
     }
 }

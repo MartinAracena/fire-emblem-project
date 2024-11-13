@@ -1,8 +1,8 @@
-using Fire_Emblem.Abilities.Conditions;
-using Fire_Emblem.Abilities.Effects;
 using Fire_Emblem.DataAccess;
 using Fire_Emblem.DataTransfer;
 using Fire_Emblem.Model;
+using Fire_Emblem.Skills.Conditions;
+using Fire_Emblem.Skills.Effects;
 
 namespace Fire_Emblem.DataManagement; 
 

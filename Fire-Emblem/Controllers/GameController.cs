@@ -1,3 +1,4 @@
+using Fire_Emblem.Battle;
 using Fire_Emblem.Model;
 
 namespace Fire_Emblem.Controllers;
@@ -17,7 +18,7 @@ public class GameController {
         _playerOne = gameState.PlayerOne;
         _playerTwo = gameState.PlayerTwo;
         _round = 1;
-        _battleController = new BattleController(gameView);
+        _battleController = new BattleController(gameView, new WeaponTriangleBonus(), new DamageCalculator());
         _currentPlayer = _playerOne;
         _opponentPlayer = _playerTwo;
     }
