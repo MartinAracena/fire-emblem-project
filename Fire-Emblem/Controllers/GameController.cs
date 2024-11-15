@@ -7,7 +7,7 @@ public class GameController {
     private GameView _gameView;
     private Player _playerOne;
     private Player _playerTwo;
-    private BattleController _battleController;
+    private CombatController _combatController;
     private int _round;
     
     private Player _currentPlayer;
@@ -18,7 +18,7 @@ public class GameController {
         _playerOne = gameState.PlayerOne;
         _playerTwo = gameState.PlayerTwo;
         _round = 1;
-        _battleController = new BattleController(gameView, new WeaponTriangleBonus(), new DamageCalculator());
+        _combatController = new CombatController(gameView, new WeaponTriangleBonus(), new DamageCalculator());
         _currentPlayer = _playerOne;
         _opponentPlayer = _playerTwo;
     }
@@ -37,7 +37,7 @@ public class GameController {
         Unit attacker = _currentPlayer.SelectUnit(_gameView);
         Unit defender = _opponentPlayer.SelectUnit(_gameView);
         _gameView.SayThatAPlayerTurnBegins(_round, _currentPlayer, attacker);
-        _battleController.ResolveCombat(attacker, defender);
+        _combatController.ResolveCombat(attacker, defender);
     }
     private void RemoveDefeatedUnits(){
         _playerOne.Team.Units.RemoveAll(unit => !unit.IsAlive());

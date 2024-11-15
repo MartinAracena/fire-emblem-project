@@ -4,11 +4,11 @@ using Fire_Emblem.Model;
 
 namespace Fire_Emblem.Controllers;
 
-public class BattleController {
+public class CombatController {
     private GameView _gameView;
     private WeaponTriangleBonus _weaponTriangleBonus;
     private DamageCalculator _damageCalculator;
-    public BattleController(GameView gameView, WeaponTriangleBonus weaponTriangleBonus, DamageCalculator damageCalculator) {
+    public CombatController(GameView gameView, WeaponTriangleBonus weaponTriangleBonus, DamageCalculator damageCalculator) {
         _gameView = gameView;
         _weaponTriangleBonus = weaponTriangleBonus;
         _damageCalculator = damageCalculator;

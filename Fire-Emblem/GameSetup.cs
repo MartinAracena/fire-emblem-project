@@ -1,50 +1,29 @@
-﻿using Fire_Emblem_View;
-using Fire_Emblem.Configuration;
-using Fire_Emblem.Controllers;
 using Fire_Emblem.DataAccess;
 using Fire_Emblem.DataManagement;
 using Fire_Emblem.Model;
-using Fire_Emblem.Serialization;
 using Fire_Emblem.TeamRules;
 
 namespace Fire_Emblem;
 
-public class Game {
+public class GameSetup {
     private GameView _gameView;
     private string _teamsFolder;
-    private UnitCatalog _unitCatalog;
-    private AbilityCatalog _abilityCatalog;
-    private JsonDataLoader _jsonDataLoader;
     private TeamBuilder _teamBuilder;
     private TeamRulesValidator _teamRulesValidator;
-    
-    private GameController _gameController;
-    
     private GameState _gameState;
     
-    public Game(View view, string teamsFolder) {
-        _gameView = new GameView(view);
+    public GameSetup(GameView gameView, string teamsFolder) {
+        _gameView = gameView;
         _teamsFolder = teamsFolder;
-        
-        _unitCatalog = new UnitCatalog();
-        _abilityCatalog= new AbilityCatalog();
-        _jsonDataLoader = new JsonDataLoader(_unitCatalog, _abilityCatalog);
-        _teamBuilder = new TeamBuilder(_unitCatalog, _abilityCatalog);
+        _teamBuilder = new TeamBuilder(new UnitCatalog(), new AbilityCatalog());
         _gameState = new GameState();
     }
-    
-    public void Play() {
-        if (!LoadGame()) {return;}
-        _gameController.StartGame();
-    }
-    
-    private bool LoadGame() {
+
+    public GameState LoadGame() {
         LoadRules();
         LoadPlayers();
-        LoadCatalogs();
-        if (!LoadTeams()) {return false;}
-        LoadCombatSystem();
-        return true;
+        if (!LoadTeams()) return null;
+        return _gameState;
     }
 
     private void LoadRules() {
@@ -58,21 +37,16 @@ public class Game {
         _teamRulesValidator = new TeamRulesValidator(rules);
     }
     
-    private void LoadPlayers() {    
+    private void LoadPlayers() {
         _gameState.PlayerOne = new Player(1);
         _gameState.PlayerTwo = new Player(2);
-    }
-
-    private void LoadCatalogs() {
-        _jsonDataLoader.LoadUnitCatalog(GameConfig.DefaultCharacterFilePath);
-        _jsonDataLoader.LoadAbilityCatalog(GameConfig.DefaultAbilityFilePath);
     }
     
     private bool LoadTeams() {
         var (teamOne, teamTwo) = _teamBuilder.BuildTeams(ReadTeamsFile());
         _gameState.PlayerOne.AddTeam(teamOne);
         _gameState.PlayerTwo.AddTeam(teamTwo);
-        return ValidateTeams(teamOne, teamTwo);
+        return _teamRulesValidator.IsValid(teamOne) && _teamRulesValidator.IsValid(teamTwo);
     }
     
     private string ReadTeamsFile() {
@@ -105,9 +79,5 @@ public class Game {
         }
 
         return true;
-    }
-
-    private void LoadCombatSystem() {
-        _gameController = new GameController(_gameView, _gameState);
     }
 }
