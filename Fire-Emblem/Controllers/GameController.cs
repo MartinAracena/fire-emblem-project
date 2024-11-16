@@ -5,9 +5,8 @@ namespace Fire_Emblem.Controllers;
 
 public class GameController {
     private GameView _gameView;
-    private Player _playerOne;
-    private Player _playerTwo;
     private CombatController _combatController;
+    private TurnController _turnController;
     private int _round;
     
     private Player _currentPlayer;
@@ -15,12 +14,11 @@ public class GameController {
 
     public GameController(GameView gameView, GameState gameState) {
         _gameView = gameView;
-        _playerOne = gameState.PlayerOne;
-        _playerTwo = gameState.PlayerTwo;
+        _currentPlayer = gameState.PlayerOne;
+        _opponentPlayer = gameState.PlayerTwo;
         _round = 1;
         _combatController = new CombatController(gameView, new WeaponTriangleBonus(), new DamageCalculator());
-        _currentPlayer = _playerOne;
-        _opponentPlayer = _playerTwo;
+        _turnController = new TurnController(gameView, _combatController);
     }
 
     public void StartGame() {
@@ -34,14 +32,11 @@ public class GameController {
     }
 
     private void ExecuteTurn() {
-        Unit attacker = _currentPlayer.SelectUnit(_gameView);
-        Unit defender = _opponentPlayer.SelectUnit(_gameView);
-        _gameView.SayThatAPlayerTurnBegins(_round, _currentPlayer, attacker);
-        _combatController.ResolveCombat(attacker, defender);
+        _turnController.ExecuteTurn(_currentPlayer, _opponentPlayer, _round);
     }
     private void RemoveDefeatedUnits(){
-        _playerOne.Team.Units.RemoveAll(unit => !unit.IsAlive());
-        _playerTwo.Team.Units.RemoveAll(unit => !unit.IsAlive());
+        _currentPlayer.Team.Units.RemoveAll(unit => !unit.IsAlive());
+        _opponentPlayer.Team.Units.RemoveAll(unit => !unit.IsAlive());
     }
 
     private void SwitchTurns() {
@@ -49,14 +44,14 @@ public class GameController {
     }
 
     private bool IsGameOver() {
-        return !_playerOne.HasUnits() || !_playerTwo.HasUnits();
+        return !_currentPlayer.HasUnits() || !_opponentPlayer.HasUnits();
     }
 
     private void AnnounceWinner() {
-        if (_playerOne.HasUnits()) {
-            _gameView.ShowWinner(_playerOne);
-        } else if (_playerTwo.HasUnits()) {
-            _gameView.ShowWinner(_playerTwo);
+        if (_currentPlayer.HasUnits()) {
+            _gameView.ShowWinner(_currentPlayer);
+        } else if (_opponentPlayer.HasUnits()) {
+            _gameView.ShowWinner(_opponentPlayer);
         }
     }
 }

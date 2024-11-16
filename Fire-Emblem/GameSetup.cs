@@ -1,6 +1,9 @@
+using Fire_Emblem.Configuration;
 using Fire_Emblem.DataAccess;
 using Fire_Emblem.DataManagement;
+using Fire_Emblem.Exceptions;
 using Fire_Emblem.Model;
+using Fire_Emblem.Serialization;
 using Fire_Emblem.TeamRules;
 
 namespace Fire_Emblem;
@@ -8,6 +11,9 @@ namespace Fire_Emblem;
 public class GameSetup {
     private GameView _gameView;
     private string _teamsFolder;
+    private JsonDataLoader _dataLoader;
+    private UnitCatalog _unitCatalog;
+    private AbilityCatalog _abilityCatalog;
     private TeamBuilder _teamBuilder;
     private TeamRulesValidator _teamRulesValidator;
     private GameState _gameState;
@@ -15,14 +21,22 @@ public class GameSetup {
     public GameSetup(GameView gameView, string teamsFolder) {
         _gameView = gameView;
         _teamsFolder = teamsFolder;
-        _teamBuilder = new TeamBuilder(new UnitCatalog(), new AbilityCatalog());
+        _unitCatalog = new UnitCatalog();
+        _abilityCatalog = new AbilityCatalog();
+        _dataLoader = new JsonDataLoader(_unitCatalog, _abilityCatalog);
+        _dataLoader.LoadUnitCatalog(GameConfig.DefaultCharacterFilePath);
+        _dataLoader.LoadAbilityCatalog(GameConfig.DefaultAbilityFilePath);
+        _teamBuilder = new TeamBuilder(_unitCatalog, _abilityCatalog);
         _gameState = new GameState();
     }
 
     public GameState LoadGame() {
         LoadRules();
         LoadPlayers();
-        if (!LoadTeams()) return null;
+        if (!LoadTeams()) {
+            _gameView.SayThatATeamIsInvalid();
+            return null;
+        };
         return _gameState;
     }
 
@@ -46,7 +60,7 @@ public class GameSetup {
         var (teamOne, teamTwo) = _teamBuilder.BuildTeams(ReadTeamsFile());
         _gameState.PlayerOne.AddTeam(teamOne);
         _gameState.PlayerTwo.AddTeam(teamTwo);
-        return _teamRulesValidator.IsValid(teamOne) && _teamRulesValidator.IsValid(teamTwo);
+        return ValidateTeams(teamOne, teamTwo);
     }
     
     private string ReadTeamsFile() {
@@ -70,11 +84,11 @@ public class GameSetup {
     }
     private bool ValidateTeams(Team team1, Team team2) {
         if (!_teamRulesValidator.IsValid(team1)) {
-            _gameView.SayThatATeamIsInvalid();
+            //_gameView.SayThatATeamIsInvalid();
             return false;
         }
         if (!_teamRulesValidator.IsValid(team2)) {
-            _gameView.SayThatATeamIsInvalid();
+            //_gameView.SayThatATeamIsInvalid();
             return false;
         }
 

@@ -13,6 +13,12 @@ public class JsonDataLoader
         _unitCatalog = unitCatalog;
         _abilityCatalog = abilityCatalog;
     }
+
+    public void LoadCatalogs(string filePath) {
+        LoadUnitCatalog(filePath);
+        LoadAbilityCatalog(filePath);
+    }
+    
     public void LoadUnitCatalog(string filePath) {
         string json = File.ReadAllText(filePath);
         List<UnitInfo> unitsInfo = JsonSerializer.Deserialize<List<UnitInfo>>(json);

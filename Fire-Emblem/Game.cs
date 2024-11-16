@@ -22,18 +22,26 @@ public class Game {
     
     private GameState _gameState;
     
+    private GameSetup _gameSetup;
+    
     public Game(View view, string teamsFolder) {
         _gameView = new GameView(view);
         _teamsFolder = teamsFolder;
+        _gameSetup = new GameSetup(_gameView, teamsFolder);
         
         _unitCatalog = new UnitCatalog();
         _abilityCatalog= new AbilityCatalog();
         _jsonDataLoader = new JsonDataLoader(_unitCatalog, _abilityCatalog);
         _teamBuilder = new TeamBuilder(_unitCatalog, _abilityCatalog);
-        _gameState = new GameState();
     }
-    
+
     public void Play() {
+        _gameState = _gameSetup.LoadGame();
+        LoadCombatSystem();
+        _gameController.StartGame();
+    }
+        
+    public void OldPlay() {
         if (!LoadGame()) {return;}
         _gameController.StartGame();
     }
