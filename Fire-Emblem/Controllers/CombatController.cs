@@ -36,10 +36,10 @@ public class CombatController {
     
     private void PerformFollowUpAttack(Unit attacker, Unit defender) {
         if (!CanPerformAttack(attacker, defender)) {return;}
-        if (attacker.GetStat(StatType.Speed) >= defender.GetStat(StatType.Speed) + GameConfig.FollowUpMinSpdThreshold ) {
+        if (attacker.GetStat(StatType.Speed) >= defender.GetStat(StatType.Speed) + GameConfig.FollowUpSpeedDifferenceRequirement ) {
             PerformAttack(attacker, defender);
         }
-        else if (defender.GetStat(StatType.Speed) >= attacker.GetStat(StatType.Speed) + GameConfig.FollowUpMinSpdThreshold ) {
+        else if (defender.GetStat(StatType.Speed) >= attacker.GetStat(StatType.Speed) + GameConfig.FollowUpSpeedDifferenceRequirement ) {
             PerformAttack(defender, attacker);
         }
         else{
