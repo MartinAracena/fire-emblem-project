@@ -19,6 +19,7 @@ public class CombatController {
         _gameView.ShowCombatResult(attacker, defender);
     }
     
+    
     private void ExecuteCombat(Unit attacker , Unit defender) {
         PerformAttack(attacker, defender);
         PerformAttack(defender, attacker);
