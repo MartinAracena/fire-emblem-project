@@ -1,9 +1,9 @@
-using Fire_Emblem.Battle;
+using Fire_Emblem.Controllers;
 using Fire_Emblem.Model;
 
-namespace Fire_Emblem.Controllers;
+namespace Fire_Emblem.Combat;
 
-public class GameController {
+public class CombatSystem {
     private GameView _gameView;
     private CombatController _combatController;
     private TurnController _turnController;
@@ -12,7 +12,7 @@ public class GameController {
     private Player _currentPlayer;
     private Player _opponentPlayer;
 
-    public GameController(GameView gameView, GameState gameState) {
+    public CombatSystem(GameView gameView, GameState gameState) {
         _gameView = gameView;
         _currentPlayer = gameState.PlayerOne;
         _opponentPlayer = gameState.PlayerTwo;
@@ -24,7 +24,6 @@ public class GameController {
     public void StartGame() {
         while (!IsGameOver()) {
             ExecuteTurn();
-            RemoveDefeatedUnits();
             SwitchTurns();
             _round++;
         }
@@ -32,11 +31,7 @@ public class GameController {
     }
 
     private void ExecuteTurn() {
-        _turnController.ExecuteTurn(_currentPlayer, _opponentPlayer, _round);
-    }
-    private void RemoveDefeatedUnits(){
-        _currentPlayer.Team.Units.RemoveAll(unit => !unit.IsAlive());
-        _opponentPlayer.Team.Units.RemoveAll(unit => !unit.IsAlive());
+        _turnController.StartTurn(_currentPlayer, _opponentPlayer, _round);
     }
 
     private void SwitchTurns() {

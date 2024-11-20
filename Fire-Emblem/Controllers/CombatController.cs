@@ -1,4 +1,4 @@
-using Fire_Emblem.Battle;
+using Fire_Emblem.Combat;
 using Fire_Emblem.Configuration;
 using Fire_Emblem.Model;
 
@@ -13,14 +13,14 @@ public class CombatController {
         _weaponTriangleBonus = weaponTriangleBonus;
         _damageCalculator = damageCalculator;
     }
-    public void ResolveCombat(Unit attacker, Unit defender) {
+    public void StartCombat(Unit attacker, Unit defender) {
         _weaponTriangleBonus.ShowUnitAdvantage(_gameView, attacker, defender);
-        ExecuteCombat(attacker, defender);
+        PerformAttacks(attacker, defender);
         _gameView.ShowCombatResult(attacker, defender);
     }
     
     
-    private void ExecuteCombat(Unit attacker , Unit defender) {
+    private void PerformAttacks(Unit attacker , Unit defender) {
         PerformAttack(attacker, defender);
         PerformAttack(defender, attacker);
         PerformFollowUpAttack(attacker, defender);

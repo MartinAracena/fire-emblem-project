@@ -1,4 +1,4 @@
-using Fire_Emblem.Battle;
+using Fire_Emblem.Combat;
 
 namespace Fire_Emblem.Model; 
 
@@ -12,9 +12,11 @@ public class Unit {
 
     private int _currentHp;
 
-    public List<Skill> Abilities = new List<Skill>();
+    public List<Skill> Skills = new List<Skill>();
     
     Unit LastEnemy  { get; set; }
+
+    public event Action<Unit> UnitDefeated;
     
     public Unit(string name, WeaponType weapon, GenderType gender, string deathQuote, Stats stats) {
         Name = name;
@@ -30,11 +32,11 @@ public class Unit {
     }
 
     public void AddAbility(Skill skill) {
-        Abilities.Add(skill);
+        Skills.Add(skill);
     }
 
     public void ActivateAbilities(BattleContext context) {
-        foreach (var ability in Abilities) {
+        foreach (var ability in Skills) {
             ability.Activate(this, context);
         }
     }
@@ -45,12 +47,17 @@ public class Unit {
     
     public void ReceiveDamage(int damage) {
         _currentHp -= damage;
-        if (_currentHp < 0) {
+        if (_currentHp <= 0) {
             _currentHp = 0;
+            OnDefeated();
         }
     }
     
     public bool IsAlive() {
         return _currentHp > 0;
+    }
+
+    protected virtual void OnDefeated() {
+        UnitDefeated?.Invoke(this);
     }
 }

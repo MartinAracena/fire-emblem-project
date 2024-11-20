@@ -1,7 +1,7 @@
 using Fire_Emblem.Configuration;
 using Fire_Emblem.Model;
 
-namespace Fire_Emblem.Battle.Attacks;
+namespace Fire_Emblem.Combat.Attacks;
 
 public class FollowUpAttack(DamageCalculator damageCalculator) : IAttack {
     private DamageCalculator _damageCalculator = damageCalculator;

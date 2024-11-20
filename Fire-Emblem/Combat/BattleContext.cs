@@ -1,6 +1,6 @@
 ﻿using Fire_Emblem.Model;
 
-namespace Fire_Emblem.Battle; 
+namespace Fire_Emblem.Combat; 
 
 public class BattleContext {
     public GameView GameView;

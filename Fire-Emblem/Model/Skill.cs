@@ -1,4 +1,4 @@
-using Fire_Emblem.Battle;
+using Fire_Emblem.Combat;
 using Fire_Emblem.Skills.Conditions;
 using Fire_Emblem.Skills.Effects;
 

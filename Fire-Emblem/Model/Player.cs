@@ -15,12 +15,6 @@ public class Player {
         Team.Units.Remove(unit);
     }
     
-    public Unit SelectUnit(GameView gameView) {
-        gameView.TellAPlayerToSelectUnit(PlayerId);
-        gameView.ShowUnitSelection(Team);
-            return Team.Units[gameView.ReadLine()];
-        }
-
     public bool HasUnits() {
         return Team.HasUnits();
     }

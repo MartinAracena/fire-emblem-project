@@ -11,10 +11,16 @@ public class TurnController {
         _combatController = combatController;
     }
 
-    public void ExecuteTurn(Player currentPlayer, Player opponentPlayer, int round) {
-        Unit attacker = currentPlayer.SelectUnit(_gameView);
-        Unit defender = opponentPlayer.SelectUnit(_gameView);
+    public void StartTurn(Player currentPlayer, Player opponentPlayer, int round) {
+        Unit attacker = SelectUnitForPlayer(currentPlayer);
+        Unit defender = SelectUnitForPlayer(opponentPlayer);
         _gameView.SayThatAPlayerTurnBegins(round, currentPlayer, attacker);
-        _combatController.ResolveCombat(attacker, defender);
+        _combatController.StartCombat(attacker, defender);
+    }
+
+    private Unit SelectUnitForPlayer(Player player) {
+        _gameView.TellAPlayerToSelectUnit(player);
+        _gameView.ShowUnitSelection(player.Team);
+        return player.GetUnit(_gameView.ReadLine());
     }
 }

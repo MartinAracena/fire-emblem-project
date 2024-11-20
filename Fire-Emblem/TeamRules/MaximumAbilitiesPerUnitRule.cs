@@ -5,6 +5,6 @@ namespace Fire_Emblem.TeamRules;
 
 public class MaximumAbilitiesPerUnitRule : ITeamRule {
     public bool IsValid(Team team) {
-        return team.Units.All(unit => unit.Abilities.Count <= GameConfig.MaxAbilitiesPerUnit);
+        return team.Units.All(unit => unit.Skills.Count <= GameConfig.MaxAbilitiesPerUnit);
     }
 }

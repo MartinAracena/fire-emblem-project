@@ -1,4 +1,4 @@
-namespace Fire_Emblem.Battle;
+namespace Fire_Emblem.Combat;
 
 public enum AttackType {
     FirstAttack,

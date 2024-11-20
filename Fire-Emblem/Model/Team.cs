@@ -5,10 +5,12 @@ public class Team {
 
     public void AddUnit(Unit unit) {
         Units.Add(unit);
+        unit.UnitDefeated += RemoveUnit;
     }
 
     public void RemoveUnit(Unit unit) {
         Units.Remove(unit);
+        unit.UnitDefeated -= RemoveUnit;
     }
 
     public bool HasUnits() {

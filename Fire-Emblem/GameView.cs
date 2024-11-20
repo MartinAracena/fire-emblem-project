@@ -28,8 +28,8 @@ public class GameView {
         _view.WriteLine("Archivo de equipos no válido");
     }
 
-    public void TellAPlayerToSelectUnit(int playerId) {
-        _view.WriteLine($"Player {playerId} selecciona una opción");
+    public void TellAPlayerToSelectUnit(Player player) {
+        _view.WriteLine($"Player {player.PlayerId} selecciona una opción");
     }
     
     public void ShowUnitSelection(Team team) {

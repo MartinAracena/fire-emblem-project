@@ -1,4 +1,5 @@
 ﻿using Fire_Emblem_View;
+using Fire_Emblem.Combat;
 using Fire_Emblem.Configuration;
 using Fire_Emblem.Controllers;
 using Fire_Emblem.DataAccess;
@@ -11,7 +12,7 @@ namespace Fire_Emblem;
 
 public class Game {
     private GameView _gameView;
-    private GameController _gameController;
+    private CombatSystem _combatSystem;
     private GameSetup _gameSetup;
     
     public Game(View view, string teamsFolder) {
@@ -23,7 +24,7 @@ public class Game {
         if (!_gameSetup.Initialize()) {
             return;
         };
-        _gameController = new GameController(_gameView, _gameSetup.GameState);
-        _gameController.StartGame();
+        _combatSystem = new CombatSystem(_gameView, _gameSetup.GameState);
+        _combatSystem.StartGame();
     }
 }
