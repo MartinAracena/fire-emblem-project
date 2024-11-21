@@ -1,5 +1,6 @@
 using Fire_Emblem.Configuration;
 using Fire_Emblem.Model;
+using Fire_Emblem.Utilities;
 
 namespace Fire_Emblem.Combat; 
 

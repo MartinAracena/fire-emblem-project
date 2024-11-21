@@ -1,5 +1,6 @@
 using Fire_Emblem.Combat;
 using Fire_Emblem.Model;
+using Fire_Emblem.Utilities;
 
 namespace Fire_Emblem.Skills.Conditions;
 
@@ -11,7 +12,7 @@ public class HpInRangeCondition : ICondition {
         _minHp = minHp;
     }
     public bool IsMet(Unit owner, BattleContext context) {
-        int ownerHpPercentage = owner.GetCurrentHp() / owner.GetStat(StatType.Health);
+        int ownerHpPercentage = owner.GetCurrentHp() / owner.Stats.GetBaseStats()[StatType.Health];
         return _maxHp >= ownerHpPercentage && _minHp <= ownerHpPercentage;
     }
 }

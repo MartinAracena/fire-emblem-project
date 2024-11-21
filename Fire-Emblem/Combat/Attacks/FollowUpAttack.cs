@@ -1,5 +1,6 @@
 using Fire_Emblem.Configuration;
 using Fire_Emblem.Model;
+using Fire_Emblem.Utilities;
 
 namespace Fire_Emblem.Combat.Attacks;
 
@@ -15,7 +16,7 @@ public class FollowUpAttack(DamageCalculator damageCalculator) : IAttack {
     }
     
     private bool HasSufficientSpeedDifference(Unit attacker, Unit defender) {
-        int speedDifference = Math.Abs(attacker.GetStat(StatType.Speed) - defender.GetStat(StatType.Speed));
+        int speedDifference = Math.Abs(attacker.Stats.GetBaseStats()[StatType.Speed] - defender.Stats.GetBaseStats()[StatType.Speed]);
         return speedDifference >= GameConfig.FollowUpSpeedDifferenceRequirement;
     }
 
@@ -26,7 +27,7 @@ public class FollowUpAttack(DamageCalculator damageCalculator) : IAttack {
     }
     
     private Unit DetermineAttacker(Unit attacker, Unit defender) {
-        if (attacker.GetStat(StatType.Speed) - defender.GetStat(StatType.Speed) >=
+        if (attacker.Stats.GetBaseStats()[StatType.Speed] - defender.Stats.GetBaseStats()[StatType.Speed] >=
             GameConfig.FollowUpSpeedDifferenceRequirement)
             return attacker;
         return defender;

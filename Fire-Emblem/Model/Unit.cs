@@ -1,4 +1,5 @@
 using Fire_Emblem.Combat;
+using Fire_Emblem.Utilities;
 
 namespace Fire_Emblem.Model; 
 
@@ -7,8 +8,8 @@ public class Unit {
     public WeaponType Weapon { get; set; }
     public GenderType Gender { get; set; }
     private string DeathQuote { get; set; }
-    
-    private Stats _stats { get; }
+
+    public Dictionary<StatType, string> Stats { get; set; }
 
     private int _currentHp;
 
@@ -23,15 +24,15 @@ public class Unit {
         Weapon = weapon;
         Gender = gender;
         DeathQuote = deathQuote;
-        _stats = stats;
-        _currentHp = _stats.GetStat(StatType.Health);
+        Stats = stats;
+        _currentHp = Stats.GetBaseStats()[StatType.Health];
     }
 
     public int GetCurrentHp() {
         return _currentHp;
     }
 
-    public void AddAbility(Skill skill) {
+    public void AddSkill(Skill skill) {
         Skills.Add(skill);
     }
 
@@ -40,15 +41,10 @@ public class Unit {
             ability.Activate(this, context);
         }
     }
-
-    public int GetStat(StatType stat) {
-        return _stats.GetStat(stat);
-    }
     
     public void ReceiveDamage(int damage) {
-        _currentHp -= damage;
-        if (_currentHp <= 0) {
-            _currentHp = 0;
+        _currentHp = Math.Max(0, _currentHp - damage);
+        if (!IsAlive()) {
             OnDefeated();
         }
     }

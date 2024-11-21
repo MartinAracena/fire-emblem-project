@@ -1,6 +1,7 @@
 using Fire_Emblem.Combat;
 using Fire_Emblem.Configuration;
 using Fire_Emblem.Model;
+using Fire_Emblem.Utilities;
 
 namespace Fire_Emblem.Controllers;
 
@@ -37,10 +38,10 @@ public class CombatController {
     
     private void PerformFollowUpAttack(Unit attacker, Unit defender) {
         if (!CanPerformAttack(attacker, defender)) {return;}
-        if (attacker.GetStat(StatType.Speed) >= defender.GetStat(StatType.Speed) + GameConfig.FollowUpSpeedDifferenceRequirement ) {
+        if (attacker.Stats.GetBaseStats()[StatType.Speed] >= defender.Stats.GetBaseStats()[StatType.Speed] + GameConfig.FollowUpSpeedDifferenceRequirement ) {
             PerformAttack(attacker, defender);
         }
-        else if (defender.GetStat(StatType.Speed) >= attacker.GetStat(StatType.Speed) + GameConfig.FollowUpSpeedDifferenceRequirement ) {
+        else if (defender.Stats.GetBaseStats()[StatType.Speed] >= attacker.Stats.GetBaseStats()[StatType.Speed] + GameConfig.FollowUpSpeedDifferenceRequirement ) {
             PerformAttack(defender, attacker);
         }
         else{

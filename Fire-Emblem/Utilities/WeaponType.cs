@@ -1,4 +1,4 @@
-namespace Fire_Emblem.Model;
+namespace Fire_Emblem.Utilities;
 
 public enum WeaponType {
     Sword,

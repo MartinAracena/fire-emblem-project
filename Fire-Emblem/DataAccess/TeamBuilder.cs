@@ -46,7 +46,7 @@ public class TeamBuilder {
 
         foreach (var abilityName in abilities) {
             var ability = _abilityCatalog.GetAbility(abilityName);
-            unit.AddAbility(ability);
+            unit.AddSkill(ability);
         }
         return unit;
     }
