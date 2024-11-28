@@ -38,14 +38,18 @@ public class CombatController {
     
     private void PerformFollowUpAttack(Unit attacker, Unit defender) {
         if (!CanPerformAttack(attacker, defender)) {return;}
-        if (attacker.Stats.GetBaseStats()[StatType.Speed] >= defender.Stats.GetBaseStats()[StatType.Speed] + GameConfig.FollowUpSpeedDifferenceRequirement ) {
+        if (GetEffectiveSpeed(attacker) >= GetEffectiveSpeed(defender) + GameConfig.FollowUpSpeedDifferenceRequirement ) {
             PerformAttack(attacker, defender);
         }
-        else if (defender.Stats.GetBaseStats()[StatType.Speed] >= attacker.Stats.GetBaseStats()[StatType.Speed] + GameConfig.FollowUpSpeedDifferenceRequirement ) {
+        else if (GetEffectiveSpeed(defender) >= GetEffectiveSpeed(attacker) + GameConfig.FollowUpSpeedDifferenceRequirement ) {
             PerformAttack(defender, attacker);
         }
         else{
             _gameView.SayThatNoUnitCanDoAFollowUp();
         }
+    }
+
+    private int GetEffectiveSpeed(Unit unit) {
+        return unit.Stats.BaseStats[StatType.Spd] + unit.Stats.Bonuses[EffectPhase.Always][StatType.Spd];
     }
 }

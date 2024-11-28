@@ -1,9 +1,9 @@
 ﻿namespace Fire_Emblem.Utilities; 
 
 public enum StatType {
-    Health,
-    Attack,
-    Speed,
-    Defense,
-    Resistance
+    Hp,
+    Atk,
+    Spd,
+    Def,
+    Res
 }

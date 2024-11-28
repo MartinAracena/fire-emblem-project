@@ -6,7 +6,6 @@ namespace Fire_Emblem.Combat;
 public class BattleContext {
     public GameView GameView;
     
-    public AttackType AttackType;
     public Unit Attacker;
     public Unit Defender;
 

@@ -8,14 +8,14 @@ public class Unit {
     public WeaponType Weapon { get; set; }
     public GenderType Gender { get; set; }
     private string DeathQuote { get; set; }
-
-    public Dictionary<StatType, string> Stats { get; set; }
-
+    
     private int _currentHp;
 
     public List<Skill> Skills = new List<Skill>();
     
     Unit LastEnemy  { get; set; }
+    
+    public Stats Stats { get; set; }
 
     public event Action<Unit> UnitDefeated;
     
@@ -25,9 +25,9 @@ public class Unit {
         Gender = gender;
         DeathQuote = deathQuote;
         Stats = stats;
-        _currentHp = Stats.GetBaseStats()[StatType.Health];
+        _currentHp = Stats.BaseStats[StatType.Hp];
     }
-
+    
     public int GetCurrentHp() {
         return _currentHp;
     }

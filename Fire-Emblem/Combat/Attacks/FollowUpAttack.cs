@@ -16,7 +16,7 @@ public class FollowUpAttack(DamageCalculator damageCalculator) : IAttack {
     }
     
     private bool HasSufficientSpeedDifference(Unit attacker, Unit defender) {
-        int speedDifference = Math.Abs(attacker.Stats.GetBaseStats()[StatType.Speed] - defender.Stats.GetBaseStats()[StatType.Speed]);
+        int speedDifference = Math.Abs(attacker.Stats.BaseStats[StatType.Spd] - defender.Stats.BaseStats[StatType.Spd]);
         return speedDifference >= GameConfig.FollowUpSpeedDifferenceRequirement;
     }
 
@@ -27,7 +27,7 @@ public class FollowUpAttack(DamageCalculator damageCalculator) : IAttack {
     }
     
     private Unit DetermineAttacker(Unit attacker, Unit defender) {
-        if (attacker.Stats.GetBaseStats()[StatType.Speed] - defender.Stats.GetBaseStats()[StatType.Speed] >=
+        if (attacker.Stats.BaseStats[StatType.Spd] - defender.Stats.BaseStats[StatType.Spd] >=
             GameConfig.FollowUpSpeedDifferenceRequirement)
             return attacker;
         return defender;

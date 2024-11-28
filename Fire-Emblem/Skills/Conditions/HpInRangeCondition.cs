@@ -12,7 +12,7 @@ public class HpInRangeCondition : ICondition {
         _minHp = minHp;
     }
     public bool IsMet(Unit owner, BattleContext context) {
-        int ownerHpPercentage = owner.GetCurrentHp() / owner.Stats.GetBaseStats()[StatType.Health];
+        int ownerHpPercentage = owner.GetCurrentHp() / owner.Stats.BaseStats[StatType.Hp];
         return _maxHp >= ownerHpPercentage && _minHp <= ownerHpPercentage;
     }
 }

@@ -4,10 +4,10 @@ using Fire_Emblem.Utilities;
 
 namespace Fire_Emblem.Skills.Effects; 
 
-public class StatPenaltyEffect : IEffect {
+public class PenaltyEffect : IEffect {
     private StatType _statType;
     private int _value;
-    public StatPenaltyEffect(StatType statType, int value) {
+    public PenaltyEffect(StatType statType, int value) {
         _statType = statType;
         _value = value;
     }

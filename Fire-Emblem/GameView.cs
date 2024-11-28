@@ -1,5 +1,6 @@
 using Fire_Emblem_View;
 using Fire_Emblem.Model;
+using Fire_Emblem.Utilities;
 
 namespace Fire_Emblem; 
 
@@ -64,10 +65,64 @@ public class GameView {
         _view.WriteLine($"Ninguna unidad puede hacer un follow up");
     }
 
-    public void ShowStartOfCombatStatsChange(Stats stats) {
+    private void ShowBonuses(Unit unit) {
+        ShowGeneralBonuses(unit);
+        ShowFirstAttackBonuses(unit);
+        ShowFollowUpBonuses(unit);
     }
-    public void ShowFirstAttackStatChange(Stats stats) {
+
+    private void ShowPenalties(Unit unit) {
+        ShowGeneralPenalties(unit);
+        ShowFirstAttackPenalties(unit);
+        ShowFollowUpPenalties(unit);
     }
-    public void ShowFollowUpStatChange(Stats stats) {
+    
+    private void ShowGeneralBonuses(Unit unit) {
+        foreach (var bonus in unit.Stats.Bonuses[EffectPhase.Always]) {
+            if (bonus.Value > 0) {
+                Console.WriteLine($"{unit.Name} obtiene {bonus.Key} +{bonus.Value}");
+            }
+        }
     }
+    
+    private void ShowFirstAttackBonuses(Unit unit) {
+        foreach (var bonus in unit.Stats.Bonuses[EffectPhase.FirstAttack]) {
+            if (bonus.Value > 0) {
+                Console.WriteLine($"{unit.Name} obtiene {bonus.Key} +{bonus.Value} en su primer ataque");
+            }
+        }
+    }
+    
+    private void ShowFollowUpBonuses(Unit unit) {
+        foreach (var bonus in unit.Stats.Bonuses[EffectPhase.FollowUp]) {
+            if (bonus.Value > 0) {
+                Console.WriteLine($"{unit.Name} obtiene {bonus.Key} +{bonus.Value} en su primer ataque");
+            }
+        }
+    }
+    
+    private void ShowGeneralPenalties(Unit unit) {
+        foreach (var penalty in unit.Stats.Penalties[EffectPhase.Always]) {
+            if (penalty.Value > 0) {
+                Console.WriteLine($"{unit.Name} obtiene {penalty.Key} -{penalty.Value}");
+            }
+        }
+    }
+    
+    private void ShowFirstAttackPenalties(Unit unit) {
+        foreach (var penalty in unit.Stats.Penalties[EffectPhase.FirstAttack]) {
+            if (penalty.Value > 0) {
+                Console.WriteLine($"{unit.Name} obtiene {penalty.Key} -{penalty.Value} en su primer ataque");
+            }
+        }
+    }
+    
+    private void ShowFollowUpPenalties(Unit unit) {
+        foreach (var penalty in unit.Stats.Penalties[EffectPhase.FollowUp]) {
+            if (penalty.Value > 0) {
+                Console.WriteLine($"{unit.Name} obtiene {penalty.Key} -{penalty.Value} en su primer ataque");
+            }
+        }
+    }
+    
 }
