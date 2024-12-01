@@ -36,9 +36,9 @@ public class Unit {
         Skills.Add(skill);
     }
 
-    public void ActivateAbilities(BattleContext context) {
+    public void ActivateAbilities(Unit opponent, BattleContext context) {
         foreach (var ability in Skills) {
-            ability.Activate(this, context);
+            ability.Activate(this, opponent, context);
         }
     }
     

@@ -4,6 +4,6 @@ using Fire_Emblem.Model;
 namespace Fire_Emblem.Skills.Effects;
 
 public interface IEffect {
-    void Apply(Unit owner, BattleContext context);
-    void Remove(Unit owner, BattleContext context);
+    void Apply(Unit self, Unit opponent, BattleContext context);
+    void Remove(Unit self, Unit opponent, BattleContext context);
 }

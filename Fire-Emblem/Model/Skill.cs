@@ -17,17 +17,17 @@ public class Skill {
         Conditions = conditions;
     }
     
-    public void Activate(Unit owner, BattleContext context) {
-        if (Conditions.All(condition => condition.IsMet(owner, context))) {
+    public void Activate(Unit self, Unit opponent, BattleContext context) {
+        if (Conditions.All(condition => condition.IsMet(self, opponent, context))) {
             foreach (var effect in Effects) {
-                effect.Apply(owner, context);
+                effect.Apply(self, opponent, context);
             }
         }
     }
     
-    public void Deactivate(Unit owner, BattleContext context) {
+    public void Deactivate(Unit self, Unit opponent, BattleContext context) {
         foreach (var effect in Effects) {
-            effect.Remove(owner, context);
+            effect.Remove(self, opponent, context);
         }
     }
 }
